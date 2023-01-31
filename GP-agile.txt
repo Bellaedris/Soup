@@ -1,0 +1,9 @@
+Sprint planning -> dire ce qu'on veut faire
+
+Grooming -> révision prio, nouveautés/abandon
+
+Review -> 1 slide/personne pour montrer ce qu'on a fait
+
+Retrospective -> chacun dit 1/2 choses qui se sont bien ou pas bien passées + action pour améliorer
+
+15min max!
