@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SoupBubbles
-  m_Shader: {fileID: -6465566751694194690, guid: c168ce2a1f4bd9b01b6f438473cc0163,
+  m_Name: Bubbles
+  m_Shader: {fileID: -6465566751694194690, guid: 0df2fbce5a4f39ba19b4dcb947fd9e1e,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -25,19 +25,5 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    m_Colors:
-    - _SoupColor: {r: 1, g: 0.37902603, b: 0, a: 1}
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &6119830975642007217
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 0
