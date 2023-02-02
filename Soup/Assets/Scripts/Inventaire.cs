@@ -22,4 +22,19 @@ public class Inventaire : MonoBehaviour
     {
         inventaireIngredients.Add(ingredient);
     }
+    private void Update() {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+        RaycastHit hit;
+        if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
+            if(hit.collider.gameObject.GetComponent<Legume>() != null){
+                AddLegume(hit.collider.gameObject.GetComponent<Legume>());
+            Debug.Log("tu as clicker sur moi");
+            //Destroy(this);
+            Destroy(hit.collider.gameObject);
+
+            
+            }
+
+        }
+    }
 }
