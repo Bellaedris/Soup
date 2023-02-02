@@ -44,9 +44,11 @@ public class Soup : MonoBehaviour
     public void AddLegume(Legume legume)
     {
         nbLegumes++;
-        Debug.Log(legume.couleur);
-        Color color = legume.couleur;
-        colors.Add(color);
+        if (legume.isMixed)
+        {
+            Color color = legume.couleur;
+            colors.Add(color);
+        }
         ingredients.Add(legume);
     }
 

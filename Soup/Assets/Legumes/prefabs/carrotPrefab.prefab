@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nom: Carrot
   objet: {fileID: 919132149155446097, guid: a397a2fb343f5bf4f9958105cd4b219f, type: 3}
-  isMixed: 0
+  isMixed: 1
   couleur: {r: 0.990566, g: 0.580993, b: 0, a: 0}
 --- !u!23 &1707541659425166041
 MeshRenderer:

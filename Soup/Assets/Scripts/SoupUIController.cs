@@ -6,19 +6,31 @@ using UnityEngine;
 public class SoupUIController : MonoBehaviour
 {
     private Soup soup;
+    private Inventaire inventory;
     public GameObject soupSurface;
     public GameObject[] legumes;
 
     private void Start()
     {
+        inventory = new Inventaire();
         soup = new Soup();
         Debug.Log("New COntroller");
     }
 
-    public void AddLeg(Legume legume)
+    public void AddLegToSoup(Legume legume)
     {
         soup.AddLegume(legume);
         Renderer renderer = soupSurface.GetComponent<Renderer>();
         renderer.material.color = soup.computeColor();
+    }
+
+    public void AddIngToSoup(Ingredient ingredient)
+    {
+        soup.AddIngredient(ingredient);
+    }
+
+    public void AddLegToInv(Legume legume)
+    {
+
     }
 }
