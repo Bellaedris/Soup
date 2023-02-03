@@ -2981,7 +2981,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1997079063}
-  - component: {fileID: 1997079062}
+  - component: {fileID: 1997079065}
+  - component: {fileID: 1997079064}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -2989,20 +2990,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1997079062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997079061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807248758eaab47428d6d243e0c2dd66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventaireLegumes: []
-  inventaireIngredients: []
 --- !u!4 &1997079063
 Transform:
   m_ObjectHideFlags: 0
@@ -3018,6 +3005,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1997079064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997079061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a1ffa8e2cb50b41a958dc6d78491b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1997079065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997079061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db338326b4af1cb40930b4cad99414a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventaireLegumes: []
+  inventaireIngredients: []
 --- !u!1 &2044516920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a397a2fb343f5bf4f9958105cd4b219f,
