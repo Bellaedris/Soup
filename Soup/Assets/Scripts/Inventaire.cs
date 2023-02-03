@@ -16,7 +16,7 @@ public class Inventaire : MonoBehaviour
     public void AddLegume(Legume legume)
     {
         inventaireLegumes.Add(legume);
-        Debug.Log("on rajoute : " + legume.nom);
+        Debug.Log("on rajouter : " + legume.nom);
     }
 
     public void AddIngredient(Ingredient ingredient)
