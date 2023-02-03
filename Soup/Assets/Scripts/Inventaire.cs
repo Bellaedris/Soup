@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class Inventaire : MonoBehaviour
 {
+    public static Inventaire instance = null;
     public List<Legume> inventaireLegumes;
     public List<Ingredient> inventaireIngredients;
 
+
+
+     void Awake()
+    {
+        Debug.Log("Awake");
+
+         if (instance != null && instance != this){
+            Debug.Log("destroy");
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+         }
+ 
+         instance = new Inventaire();
+
+
+    }
     public Inventaire()
     {
         inventaireLegumes = new List<Legume>(); 
@@ -22,16 +38,5 @@ public class Inventaire : MonoBehaviour
     public void AddIngredient(Ingredient ingredient)
     {
         inventaireIngredients.Add(ingredient);
-    }
-    private void Update() {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
-        RaycastHit hit;
-        if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
-            if(hit.collider.gameObject.GetComponent<Legume>() != null){
-                AddLegume(hit.collider.gameObject.GetComponent<Legume>());
-                Destroy(hit.collider.gameObject);
-            }
-
-        }
     }
 }

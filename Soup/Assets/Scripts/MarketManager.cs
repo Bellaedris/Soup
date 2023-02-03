@@ -16,7 +16,7 @@ public class MarketManager : MonoBehaviour
         if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
             if(hit.collider.gameObject.GetComponent<Legume>() != null){
                 
-                Inventaire_2.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
+                Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 Destroy(hit.collider.gameObject);
             }
 
