@@ -16,10 +16,22 @@ public class Inventaire : MonoBehaviour
     public void AddLegume(Legume legume)
     {
         inventaireLegumes.Add(legume);
+        Debug.Log("on rajoute : " + legume.nom);
     }
 
     public void AddIngredient(Ingredient ingredient)
     {
         inventaireIngredients.Add(ingredient);
+    }
+    private void Update() {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+        RaycastHit hit;
+        if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
+            if(hit.collider.gameObject.GetComponent<Legume>() != null){
+                AddLegume(hit.collider.gameObject.GetComponent<Legume>());
+                Destroy(hit.collider.gameObject);
+            }
+
+        }
     }
 }

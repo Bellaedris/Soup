@@ -8,6 +8,7 @@ public class SoupUIController : MonoBehaviour
     private Soup soup;
     private Inventaire inventory;
     public GameObject soupSurface;
+    public ParticleSystem soupBubbles;
     public GameObject[] legumes;
 
     private void Start()
@@ -21,7 +22,10 @@ public class SoupUIController : MonoBehaviour
     {
         soup.AddLegume(legume);
         Renderer renderer = soupSurface.GetComponent<Renderer>();
-        renderer.material.color = soup.computeColor();
+        renderer.material.SetColor("_Color", soup.computeColor());
+
+        soupBubbles.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
+        soupBubbles.startColor = soup.computeColor();
     }
 
     public void AddIngToSoup(Ingredient ingredient)
