@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
+
     }
 
     public void InitGame(){

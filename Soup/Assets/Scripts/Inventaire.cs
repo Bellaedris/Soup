@@ -14,12 +14,14 @@ public class Inventaire : MonoBehaviour
     {
         Debug.Log("Awake");
 
-         if (instance != null && instance != this){
+        if (instance != null && instance != this){
             Debug.Log("destroy");
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
-         }
+        }
  
-         instance = new Inventaire();
+        instance = new Inventaire();
+        DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
+
 
 
     }

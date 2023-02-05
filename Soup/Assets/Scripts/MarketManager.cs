@@ -7,6 +7,8 @@ public class MarketManager : MonoBehaviour
     private void Start() {
         //Inventaire_2.Instance.loadFile();
         GameManager.instance.InitGame();
+
+        //Inventaire.instance.inventaireIngredients;
     }
 
 
