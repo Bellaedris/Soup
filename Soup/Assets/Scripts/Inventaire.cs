@@ -4,41 +4,74 @@ using UnityEngine;
 
 public class Inventaire : MonoBehaviour
 {
-    public static Inventaire instance = null;
-    public List<Legume> inventaireLegumes;
-    public List<Ingredient> inventaireIngredients;
+    public static Inventaire instance;
+    public Dictionary<Legume, int> inventaireLegumes;
+    public Dictionary<Ingredient, int> inventaireIngredients;
 
-
+    public List<Ingredient> listInventaireIngredients;
+    public List<int> listInventaireIngredientsNumber;
 
      void Awake()
     {
         Debug.Log("Awake");
 
         if (instance != null && instance != this){
-            Debug.Log("destroy");
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
         }
  
-        instance = new Inventaire();
+        instance = this;
         DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
+    }
+    private void Start() {
+        Debug.Log(" Start() " );
 
+        for(int i =0; i< listInventaireIngredients.Count ; i++){
+            if(listInventaireIngredients[i].GetComponent<Legume>()  != null ){
+                inventaireLegumes[listInventaireIngredients[i].GetComponent<Legume>()] = listInventaireIngredientsNumber[i];
+            }
+            inventaireIngredients[listInventaireIngredients[i]] = listInventaireIngredientsNumber[i];
+        }
 
+        Debug.Log("Invetory .Count : " +  inventaireIngredients.Count);
+        Debug.Log("Invetory .Count : " +  inventaireLegumes .Count);
 
     }
+
+    // private void Update() {
+    //     Debug.Log("inventaireIngredients.Count : " +  inventaireIngredients.Count);
+    //     Debug.Log("inventaireLegumes.Count : " +  inventaireLegumes .Count);
+    //     Debug.Log("listInventaireIngredients.Count : " +  listInventaireIngredients.Count);
+    //     Debug.Log("listInventaireIngredientsNumber.Count : " +  listInventaireIngredientsNumber .Count);
+    // }
     public Inventaire()
     {
-        inventaireLegumes = new List<Legume>(); 
-        inventaireIngredients = new List<Ingredient>();    
+        inventaireLegumes = new Dictionary<Legume,int>(); 
+        inventaireIngredients = new Dictionary<Ingredient,int>();    
+        Debug.Log(" Inventaire() " );
+
     }
 
     public void AddLegume(Legume legume)
     {
-        inventaireLegumes.Add(legume);
-        Debug.Log("on rajouter : " + legume.nom);
+        foreach (KeyValuePair<Legume, int> ingredient in inventaireLegumes)  
+        {  
+            if(ingredient.Key.nom == legume.nom){
+                inventaireLegumes[ingredient.Key] ++;
+                inventaireIngredients[ingredient.Key]++;
+                return;
+            }
+        } 
+        
     }
 
-    public void AddIngredient(Ingredient ingredient)
+    public void AddIngredient(Ingredient toAdd)
     {
-        inventaireIngredients.Add(ingredient);
+        foreach (KeyValuePair<Ingredient, int> ingredient in inventaireIngredients)  
+        {  
+            if(ingredient.Key.nom == toAdd.nom){
+                inventaireIngredients[ingredient.Key]++;
+                return;
+            }
+        }   
     }
 }
