@@ -10,6 +10,9 @@ public class SoupUIController : MonoBehaviour
     public GameObject soupSurface;
     public ParticleSystem soupBubbles;
     public GameObject[] legumes;
+    public GameObject inventoryItem;
+    public GameObject inventorySpawner;
+
 
     private void Start()
     {
@@ -34,6 +37,11 @@ public class SoupUIController : MonoBehaviour
     }
 
     public void AddLegToInv(Legume legume)
+    {
+
+    }
+
+    public void createInventoryItem()
     {
 
     }
