@@ -7,6 +7,7 @@ TagManager:
   - Carrot
   - PosCarrots
   - PosTomato
+  - PosBasket
   layers:
   - Default
   - TransparentFX

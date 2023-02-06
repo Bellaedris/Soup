@@ -49,7 +49,8 @@ public class MarketManager : MonoBehaviour
             if(hit.collider.gameObject.GetComponent<Legume>() != null){
                 
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
-                Destroy(hit.collider.gameObject);
+                hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
+                //Destroy(hit.collider.gameObject);
             }
 
         }
