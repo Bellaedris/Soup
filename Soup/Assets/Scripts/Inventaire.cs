@@ -4,34 +4,57 @@ using UnityEngine;
 
 public class Inventaire : MonoBehaviour
 {
-    public List<Legume> inventaireLegumes;
-    public List<Ingredient> inventaireIngredients;
+    public static Inventaire instance;
+    public Dictionary<Legume, int> inventaireLegumes;
+    public Dictionary<Ingredient, int> inventaireIngredients;
+    public List<Ingredient> listInventaireIngredients;
+    public List<int> listInventaireIngredientsNumber;
+
+     void Awake()
+    {
+        if (instance != null && instance != this){
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+        }
+ 
+        instance = this;
+        DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
+    }
+    private void Start() {
+        for(int i =0; i< listInventaireIngredients.Count ; i++){
+            if(listInventaireIngredients[i].GetComponent<Legume>()  != null ){
+                inventaireLegumes[listInventaireIngredients[i].GetComponent<Legume>()] = listInventaireIngredientsNumber[i];
+            }
+            inventaireIngredients[listInventaireIngredients[i]] = listInventaireIngredientsNumber[i];
+        }
+    }
 
     public Inventaire()
     {
-        inventaireLegumes = new List<Legume>(); 
-        inventaireIngredients = new List<Ingredient>();    
+        inventaireLegumes = new Dictionary<Legume,int>(); 
+        inventaireIngredients = new Dictionary<Ingredient,int>();    
     }
 
     public void AddLegume(Legume legume)
     {
-        inventaireLegumes.Add(legume);
-        Debug.Log("on rajoute : " + legume.nom);
-    }
-
-    public void AddIngredient(Ingredient ingredient)
-    {
-        inventaireIngredients.Add(ingredient);
-    }
-    private void Update() {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
-        RaycastHit hit;
-        if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
-            if(hit.collider.gameObject.GetComponent<Legume>() != null){
-                AddLegume(hit.collider.gameObject.GetComponent<Legume>());
-                Destroy(hit.collider.gameObject);
+        foreach (KeyValuePair<Legume, int> ingredient in inventaireLegumes)  
+        {  
+            if(ingredient.Key.nom == legume.nom){
+                inventaireLegumes[ingredient.Key] ++;
+                inventaireIngredients[ingredient.Key]++;
+                return;
             }
+        } 
+        
+    }
 
-        }
+    public void AddIngredient(Ingredient toAdd)
+    {
+        foreach (KeyValuePair<Ingredient, int> ingredient in inventaireIngredients)  
+        {  
+            if(ingredient.Key.nom == toAdd.nom){
+                inventaireIngredients[ingredient.Key]++;
+                return;
+            }
+        }   
     }
 }
