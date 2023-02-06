@@ -609,6 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a1ffa8e2cb50b41a958dc6d78491b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimumNumberVegetablesToBuy: 3
 --- !u!4 &403959075
 Transform:
   m_ObjectHideFlags: 0

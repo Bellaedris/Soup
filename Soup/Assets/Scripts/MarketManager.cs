@@ -6,14 +6,17 @@ public class MarketManager : MonoBehaviour
 {
 
     Dictionary<Ingredient, int> ingredient_to_put;
+    public int minimumNumberVegetablesToBuy;
     private void Start() {
         Debug.Log(" Start() " );
         float instancy = 0;
         //Inventaire_2.Instance.loadFile();
         ingredient_to_put = GameManager.instance.InitMarket();
-
+        minimumNumberVegetablesToBuy =minimumNumberVegetablesToBuy - GameManager.instance.InitNbVegeMarket();
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
         Object ObjectPrefab = Resources.Load("carrotPrefab");
+        Debug.Log("minimumNumberVegetablestoBuy : " + minimumNumberVegetablesToBuy);
+
         foreach (KeyValuePair<Ingredient, int> ingredient in ingredient_to_put)  
         {  
             Debug.Log("je suis l'ingredient : " + ingredient.Key.nom + " nous sommes : " + ingredient.Value);
@@ -31,13 +34,6 @@ public class MarketManager : MonoBehaviour
                 instancy++;
             }
         } 
-
-        //GameObject Carrot_prefab = GameObject.FindWithTag("Carrot");
-
-
-
-        
-        //Inventaire.instance.inventaireIngredients;
     }
 
 
@@ -50,7 +46,6 @@ public class MarketManager : MonoBehaviour
                 
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
-                //Destroy(hit.collider.gameObject);
             }
 
         }

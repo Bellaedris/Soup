@@ -9,9 +9,7 @@ public class GameManager : MonoBehaviour
     public int maxIngredientInventory;
 
     private void Awake() {
-        Debug.Log(" Awake() " );
         if(instance!=null){
-            Debug.Log("gamemanager existe deja");
             return;
         }
         instance = this;
@@ -20,11 +18,17 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public int InitNbVegeMarket(){
+        int nbVegetables = 0;
+        foreach (KeyValuePair<Ingredient, int> ingredient in Inventaire.instance.inventaireIngredients)  
+        {  
+            if(ingredient.Key.GetComponent<Legume>() != null){
+                nbVegetables += ingredient.Value;
+            }
+        } 
+        return nbVegetables;
+    }
     public Dictionary<Ingredient, int> InitMarket(){
-        Debug.Log(" InitMarket() " );
-
-        Debug.Log("gamemanager 2 : " + Inventaire.instance.inventaireIngredients.Count);
-
         Dictionary<Ingredient, int> ingredientInMarket = new  Dictionary<Ingredient, int>();
         foreach (KeyValuePair<Ingredient, int> ingredient in Inventaire.instance.inventaireIngredients)  
         {  
