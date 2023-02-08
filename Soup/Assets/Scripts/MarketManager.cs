@@ -43,7 +43,7 @@ public class MarketManager : MonoBehaviour
             }
         } 
     }
-
+    
 
     private void Update() {
 
