@@ -20,7 +20,6 @@ public class Inventaire : MonoBehaviour
         
     }
      void Awake()
-    void Awake()
     {
         Debug.Log("yiiiiiiiiiiiiiii");
         if (instance != null)
