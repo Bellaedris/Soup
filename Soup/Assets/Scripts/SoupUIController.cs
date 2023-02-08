@@ -1,12 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Xml;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-
 
 public class SoupUIController : MonoBehaviour
 {
@@ -15,15 +10,12 @@ public class SoupUIController : MonoBehaviour
     public GameObject soupSurface;
     public ParticleSystem soupBubbles;
     public GameObject[] legumes;
-    public GameObject inventoryItem;
-
 
     private void Start()
     {
         inventory = new Inventaire();
         soup = new Soup();
-        Debug.Log("New Controller");
-        generateInventoryUI();
+        Debug.Log("New COntroller");
     }
 
     public void AddLegToSoup(Legume legume)
@@ -41,56 +33,8 @@ public class SoupUIController : MonoBehaviour
         soup.AddIngredient(ingredient);
     }
 
-    public void RemoveVegFromInv(Legume leg)
+    public void AddLegToInv(Legume legume)
     {
-        Inventaire inventaire = Inventaire.instance;
-
-        int currentValue = inventaire.inventaireLegumes[leg];
-        inventaire.inventaireLegumes[leg] = currentValue - 1;
-        UpdateInventoryUI();
 
     }
-    
-    private void UpdateInventoryUI()
-    {
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("inventoryItem");
-        foreach (GameObject obj in objects)
-        {
-            Destroy(obj);
-        }
-        generateInventoryUI();
-    }
-    
-
-    public void AddLegToInv()
-    {
-        Debug.Log("feur");   
-    }
-
-    public void generateInventoryUI()
-    {
-        Debug.Log("Generate Inventory");
-        
-        Inventaire inventaire = Inventaire.instance;
-        GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
-        foreach (KeyValuePair<Legume, int> kvp in inventaire.inventaireLegumes)
-        {
-            Debug.Log(kvp.Key.nom);
-            if (kvp.Value > 0)
-            {
-                GameObject newItem = createInventoryItem(itemSpawner.transform, kvp.Value, kvp.Key);
-                newItem.transform.parent = itemSpawner.transform;
-            }
-        }
-    }
-    public GameObject createInventoryItem(Transform itemSpawner, int numberOfIngredient, Legume legume)
-    {
-        GameObject newItem;
-        newItem = Instantiate(inventoryItem, itemSpawner);
-        newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { AddLegToSoup(legume); });
-        newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { RemoveVegFromInv(legume); });
-        newItem.transform.GetChild(1).GetComponent<MeshFilter>().mesh = legume.objet;
-        newItem.transform.GetChild(2).GetComponent<TMP_Text>().text = "x" + numberOfIngredient;
-        return newItem;
-    }
-} 
+}
