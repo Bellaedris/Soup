@@ -8,6 +8,8 @@ TagManager:
   - PosCarrots
   - PosTomato
   - PosBasket
+  - ItemSpawner
+  - inventoryItem
   layers:
   - Default
   - TransparentFX
