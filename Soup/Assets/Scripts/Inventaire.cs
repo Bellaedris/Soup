@@ -7,9 +7,18 @@ public class Inventaire : MonoBehaviour
     public static Inventaire instance;
     public Dictionary<Legume, int> inventaireLegumes;
     public Dictionary<Ingredient, int> inventaireIngredients;
+
+    [Range(0,5)]
     public List<Ingredient> listInventaireIngredients;
+    [Range(0,5)]
     public List<int> listInventaireIngredientsNumber;
 
+    private void OnValidate() {
+        if(listInventaireIngredients.Count != listInventaireIngredientsNumber.Count){
+            
+        }
+        
+    }
      void Awake()
     {
         if (instance != null && instance != this){

@@ -43,7 +43,7 @@ public class MarketManager : MonoBehaviour
         RaycastHit hit;
         if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
             if(hit.collider.gameObject.GetComponent<Legume>() != null){
-                
+                Destroy(hit.collider.gameObject.GetComponent<Legume>());
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
             }
