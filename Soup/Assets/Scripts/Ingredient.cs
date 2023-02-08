@@ -5,9 +5,9 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     public string nom;
-    public GameObject objet;
+    public Mesh objet;
 
-    public Ingredient(string nom, GameObject objet)
+    public Ingredient(string nom, Mesh objet)
     {
         this.nom = nom;
         this.objet = objet;
