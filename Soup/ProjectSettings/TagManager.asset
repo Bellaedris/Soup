@@ -10,6 +10,8 @@ TagManager:
   - PosBasket
   - ItemSpawner
   - inventoryItem
+  - PosBroccoli
+  - PosLeak
   layers:
   - Default
   - TransparentFX

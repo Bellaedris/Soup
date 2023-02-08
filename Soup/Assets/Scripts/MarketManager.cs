@@ -28,9 +28,17 @@ public class MarketManager : MonoBehaviour
                 PosObject = GameObject.FindWithTag("PosTomato");
                 ObjectPrefab = Resources.Load("tomatoPrefab");
             }
+            else if(ingredient.Key.nom == "Broccoli"){
+                PosObject = GameObject.FindWithTag("PosBroccoli");
+                ObjectPrefab = Resources.Load("broccoliPrefab");
+            }
+            else if(ingredient.Key.nom == "Leak"){
+                PosObject = GameObject.FindWithTag("PosLeak");
+                ObjectPrefab = Resources.Load("LeakPrefab");
+            }
             instancy = 0;
             while(instancy < ingredient.Value){
-                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy * 0.2f, 0), Quaternion.identity);
+                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy * 0.35f, 0), Quaternion.identity);
                 instancy++;
             }
         } 
@@ -43,7 +51,7 @@ public class MarketManager : MonoBehaviour
         RaycastHit hit;
         if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
             if(hit.collider.gameObject.GetComponent<Legume>() != null){
-                
+                Destroy(hit.collider.gameObject.GetComponent<Legume>());
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
             }
