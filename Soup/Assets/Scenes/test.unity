@@ -201,6 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 190455973}
   - component: {fileID: 190455972}
+  - component: {fileID: 190455974}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -240,6 +241,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &190455974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190455971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed341cdab4b075246ba1fcf784f1e004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxIngredientInventory: 0
 --- !u!198 &247869713 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6346948837416032046, guid: d1eed61c76ab8d80aa01332b11679731,
@@ -672,7 +686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 144.6469, y: -50}
+  m_AnchoredPosition: {x: 144.64703, y: -50}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775736376
@@ -809,7 +823,7 @@ GameObject:
   - component: {fileID: 1059503666}
   - component: {fileID: 1059503665}
   m_Layer: 0
-  m_Name: feur
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,7 +1004,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480978520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -95}
+  m_LocalPosition: {x: 0, y: 0, z: -82.27754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1001,7 +1015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 229.73, y: 180}
+  m_AnchoredPosition: {x: 200, y: 190}
   m_SizeDelta: {x: 320.007, y: 77.851}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1525829423
@@ -1232,7 +1246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 18.5, y: -57.8}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1907667564
@@ -1278,7 +1292,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1796128200}
   m_HandleRect: {fileID: 1796128199}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
