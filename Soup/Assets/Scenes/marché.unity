@@ -297,6 +297,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a1ffa8e2cb50b41a958dc6d78491b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  list_prefab:
+  - PosObject: {fileID: 8000813}
+    nom: Carrot
+    ObjectPrefab: {fileID: 8612069476655642446, guid: 8be7977dd917909448e812a51f5a9704,
+      type: 3}
+  - PosObject: {fileID: 553901920}
+    nom: Tomato
+    ObjectPrefab: {fileID: 2640384127096223782, guid: 03b710fecba3079469918e4f0e416516,
+      type: 3}
   minimumNumberVegetablesToBuy: 3
 --- !u!4 &403959075
 Transform:
@@ -550,7 +559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553901920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18904173, y: 5.7199373, z: 2.4383667}
+  m_LocalPosition: {x: 0.01, y: 5.7199373, z: 2.44}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -860,7 +869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923688949}
   m_LocalRotation: {x: 0.32340506, y: -0.6288157, z: 0.32340506, w: 0.6288157}
-  m_LocalPosition: {x: 3, y: 5.1, z: 0.87}
+  m_LocalPosition: {x: 5.06, y: 6.12, z: -0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1604,9 +1613,7 @@ MonoBehaviour:
   listInventaireIngredients:
   - {fileID: 3514065782988179495, guid: 8be7977dd917909448e812a51f5a9704, type: 3}
   - {fileID: 7198098997422114639, guid: 03b710fecba3079469918e4f0e416516, type: 3}
-  - {fileID: 7198098997422114639, guid: ea7b753eed2cdb341b4b9455828bbc77, type: 3}
-  - {fileID: 7198098997422114639, guid: 2b1dc6512b147e9438a66bf5cb3b4061, type: 3}
-  listInventaireIngredientsNumber: 00000000000000000000000000000000
+  listInventaireIngredientsNumber: 0200000003000000
 --- !u!1 &2026350772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 218, y: 166}
+  m_AnchoredPosition: {x: 110.8, y: 166}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2066668235

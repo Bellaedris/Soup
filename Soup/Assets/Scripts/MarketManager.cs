@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct ItemPrefab
+{
+
+    public GameObject PosObject;
+    public string nom;
+    public Object ObjectPrefab;
+}
+
+
 public class MarketManager : MonoBehaviour
 {
 
     Dictionary<Ingredient, int> ingredient_to_put;
+    public List<ItemPrefab> list_prefab;
     public int minimumNumberVegetablesToBuy;
     private void Start() {
         Debug.Log(" Start() " );
@@ -16,26 +27,19 @@ public class MarketManager : MonoBehaviour
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
         Object ObjectPrefab = Resources.Load("carrotPrefab");
         Debug.Log("minimumNumberVegetablestoBuy : " + minimumNumberVegetablesToBuy);
-
+    
+        
         foreach (KeyValuePair<Ingredient, int> ingredient in ingredient_to_put)  
         {  
+            foreach (ItemPrefab item in list_prefab)
+            {
+                if(ingredient.Key.nom == item.nom){
+                    PosObject = item.PosObject;
+                    ObjectPrefab = item.ObjectPrefab;
+                    break;
+                }
+            }
             Debug.Log("je suis l'ingredient : " + ingredient.Key.nom + " nous sommes : " + ingredient.Value);
-            if(ingredient.Key.nom == "Carrot"){
-                PosObject = GameObject.FindWithTag("PosCarrots");
-                ObjectPrefab = Resources.Load("carrotPrefab");
-            }
-            else if(ingredient.Key.nom == "Tomato"){
-                PosObject = GameObject.FindWithTag("PosTomato");
-                ObjectPrefab = Resources.Load("tomatoPrefab");
-            }
-            else if(ingredient.Key.nom == "Broccoli"){
-                PosObject = GameObject.FindWithTag("PosBroccoli");
-                ObjectPrefab = Resources.Load("broccoliPrefab");
-            }
-            else if(ingredient.Key.nom == "Leak"){
-                PosObject = GameObject.FindWithTag("PosLeak");
-                ObjectPrefab = Resources.Load("LeakPrefab");
-            }
             instancy = 0;
             while(instancy < ingredient.Value){
                 Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy * 0.35f, 0), Quaternion.identity);
