@@ -14,13 +14,12 @@ public class Ingredient : MonoBehaviour
     }
 
     private void OnMouseOver() {
-        Debug.Log("Mouse is over " + nom);
-
+        gameObject.layer = 7;
     }
     void OnMouseExit()
     {
         //The mouse is no longer hovering over the GameObject so output this message each frame
-        Debug.Log("Mouse is no longer on " + nom);
+        gameObject.layer = 0;
     }
 }
 
