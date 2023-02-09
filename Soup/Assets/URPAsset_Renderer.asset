@@ -57,8 +57,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1036499548781993539}
   - {fileID: 5508311130898539426}
-  - {fileID: 6183637933379919071}
-  m_RendererFeatureMap: bd21ffe8269d9df1a2a3890dca73714cdf9cbd26f0b1d055
+  - {fileID: 5952860122581707141}
+  m_RendererFeatureMap: bd21ffe8269d9df1a2a3890dca73714c852912ecbdce9c52
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -158,7 +158,7 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
---- !u!114 &6183637933379919071
+--- !u!114 &5952860122581707141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,3 +197,12 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+  m_Script: {fileID: 11500000, guid: b5fe349fed440d019ae94f17043df2fd, type: 3}
+  m_Name: GrabScreenFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    TextureName: _GrabPassTransparent
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 64
