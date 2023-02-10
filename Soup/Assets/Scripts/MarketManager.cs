@@ -38,7 +38,7 @@ public class MarketManager : MonoBehaviour
             }
             instancy = 0;
             while(instancy < ingredient.Value){
-                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy * 0.35f, 0), Quaternion.identity);
+                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy, 0), Quaternion.identity);
                 instancy++;
             }
         } 
