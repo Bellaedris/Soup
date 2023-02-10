@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public int maxIngredientInventory;
 
     private void Awake() {
         if(instance!=null){
@@ -33,7 +32,7 @@ public class GameManager : MonoBehaviour
         Dictionary<Ingredient, int> ingredientInMarket = new  Dictionary<Ingredient, int>();
         foreach (KeyValuePair<Ingredient, int> ingredient in Inventaire.instance.inventaireIngredients)  
         {  
-            ingredientInMarket[ingredient.Key] = maxIngredientInventory - ingredient.Value;
+            ingredientInMarket[ingredient.Key] = Inventaire.instance.maxIngredientInventory - ingredient.Value;
         } 
 
         return ingredientInMarket;

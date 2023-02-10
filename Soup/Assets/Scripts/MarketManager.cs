@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public struct ItemPrefab
 {
-
     public GameObject PosObject;
     public string nom;
     public Object ObjectPrefab;
@@ -27,7 +26,7 @@ public class MarketManager : MonoBehaviour
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
         Object ObjectPrefab = Resources.Load("carrotPrefab");
         Debug.Log("minimumNumberVegetablestoBuy : " + minimumNumberVegetablesToBuy);
-    
+
         
         foreach (KeyValuePair<Ingredient, int> ingredient in ingredient_to_put)  
         {  
