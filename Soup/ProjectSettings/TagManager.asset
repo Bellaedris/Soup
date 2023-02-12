@@ -8,14 +8,20 @@ TagManager:
   - PosCarrots
   - PosTomato
   - PosBasket
+  - ItemSpawner
+  - inventoryItem
+  - PosBroccoli
+  - PosLeak
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Outline
   - Water
   - UI
   - 
+  - MouseHover
+  - Distortion
   - 
   - 
   - 

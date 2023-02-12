@@ -10,12 +10,15 @@ public class Inventaire : MonoBehaviour
     public List<Ingredient> listInventaireIngredients;
     public List<int> listInventaireIngredientsNumber;
 
-     void Awake()
+    public int maxIngredientInventory;
+
+    void Awake()
     {
-        if (instance != null && instance != this){
-            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+        Debug.Log("yiiiiiiiiiiiiiii");
+        if (instance != null)
+        {
+            return;
         }
- 
         instance = this;
         DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
     }
