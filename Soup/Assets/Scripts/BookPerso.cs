@@ -33,6 +33,9 @@ public class BookPerso : MonoBehaviour
     public Image[] LCache;
     public Image[] RCache;
 
+    private bool next;
+    private bool previous;
+
     public class Character
     {
 
@@ -49,6 +52,16 @@ public class BookPerso : MonoBehaviour
         }
 
     };
+
+    public void Next()
+    {
+        next = true;
+    }
+
+    public void Previous()
+    {
+        previous = true;
+    }
     void Start()
     {
         characters = new Character[bookPages.Length - 1];
@@ -69,14 +82,24 @@ public class BookPerso : MonoBehaviour
         Right.sprite = bookPages[0]; //Cover
         Left.sprite = background;
         Shadow.enabled = false;
+        next = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) && currentPage < bookPages.Length)
+       //if (next && currentPage < bookPages.Length)
+           
+        if (Input.GetKeyDown(KeyCode.Z) && currentPage < bookPages.Length)
+        {
+            next = false;
             UpdateBookRTLToPoint();
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && currentPage > 1)
+        }
+        //if (previous && currentPage > 1)
+        if (Input.GetKeyDown(KeyCode.A) && currentPage > 1)
+        {
+            previous = false;
             UpdateBookLTRToPoint();
+        }
     }
     public void UpdateBookLTRToPoint() // Turning a page back
     {
