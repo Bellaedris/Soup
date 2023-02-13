@@ -9,6 +9,12 @@ public class Soup : MonoBehaviour
     private List<Ingredient> ingredients;
     private int nbLegumes;
     private List<Color> colors;
+
+    void Awake()
+    {
+        Debug.Log("Coucou");
+    }
+
     private void Start()
     {
         Debug.Log("Soupe créée");

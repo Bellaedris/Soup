@@ -6,6 +6,7 @@ public class DinnerManager : MonoBehaviour
 {
 
     public GameObject guestPrefab;
+    public GameObject soup;
     // Start is called before the first frame update
     void Start()
     {

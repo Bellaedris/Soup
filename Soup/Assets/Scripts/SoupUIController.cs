@@ -22,7 +22,7 @@ public class SoupUIController : MonoBehaviour
     {
         inventory = new Inventaire();
         soup = new Soup();
-        Debug.Log("New Controller");
+        //Debug.Log("New Controller");
         generateInventoryUI();
     }
 
@@ -69,13 +69,13 @@ public class SoupUIController : MonoBehaviour
 
     public void generateInventoryUI()
     {
-        Debug.Log("Generate Inventory");
+        //Debug.Log("Generate Inventory");
         
         Inventaire inventaire = Inventaire.instance;
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
         foreach (KeyValuePair<Legume, int> kvp in inventaire.inventaireLegumes)
         {
-            Debug.Log(kvp.Key.nom);
+            //Debug.Log(kvp.Key.nom);
             if (kvp.Value > 0)
             {
                 GameObject newItem = createInventoryItem(itemSpawner.transform, kvp.Value, kvp.Key);

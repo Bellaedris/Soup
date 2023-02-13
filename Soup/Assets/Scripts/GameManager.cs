@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int maxIngredientInventory;
     public Guest guest;
+    public List<Character> characterList;
 
     private void Awake() {
         if(instance!=null){
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void loadDinnerScene()
     {
-        if (instance.guest.characterName.Equals(""))
+        if (instance.guest == null || instance.guest.characterName.Equals(""))
         {
             Debug.Log("Pick a guest please");
         }
