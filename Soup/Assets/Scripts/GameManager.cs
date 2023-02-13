@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public int maxIngredientInventory;
+    public Guest guest;
 
     private void Awake() {
         if(instance!=null){
@@ -14,7 +16,6 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
-
 
     }
 
@@ -40,6 +41,25 @@ public class GameManager : MonoBehaviour
 
     public void loadCuisineScene() 
     {
-        SceneManager.LoadScene(1);
+        if(instance.guest.characterName.Equals(""))
+        {
+            Debug.Log("Pick a guest please");
+        } else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
+
+    public void loadDinnerScene()
+    {
+        if (instance.guest.characterName.Equals(""))
+        {
+            Debug.Log("Pick a guest please");
+        }
+        else
+        {
+            SceneManager.LoadScene(4);
+        }
+    }
+
 }

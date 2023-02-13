@@ -12,6 +12,7 @@ TagManager:
   - inventoryItem
   - PosBroccoli
   - PosLeak
+  - Character
   layers:
   - Default
   - TransparentFX
