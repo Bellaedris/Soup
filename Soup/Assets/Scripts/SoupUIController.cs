@@ -16,7 +16,7 @@ public class SoupUIController : MonoBehaviour
     public ParticleSystem soupBubbles;
     public GameObject[] legumes;
     public GameObject inventoryItem;
-
+    [SerializeField] private Canvas canvas;
 
     private void Start()
     {
@@ -87,6 +87,13 @@ public class SoupUIController : MonoBehaviour
     {
         GameObject newItem;
         newItem = Instantiate(inventoryItem, itemSpawner);
+        newItem.AddComponent<Legume>();
+        newItem.GetComponent<Legume>().couleur = legume.couleur;
+        newItem.GetComponent<Legume>().name = legume.name;
+        newItem.GetComponent<Legume>().nom = legume.nom;
+        newItem.GetComponent<Legume>().objet = legume.objet;
+        newItem.GetComponent<Legume>().isMixed = legume.isMixed;
+        newItem.GetComponent<DragDrop>().canvas = canvas;
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { AddLegToSoup(legume); });
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { RemoveVegFromInv(legume); });
         newItem.transform.GetChild(1).GetComponent<MeshFilter>().mesh = legume.objet;

@@ -143,6 +143,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7426427444396671435}
+  - component: {fileID: 6608732408296060944}
+  - component: {fileID: 3029484790573217527}
   m_Layer: 5
   m_Name: InventoryItem
   m_TagString: inventoryItem
@@ -173,6 +175,33 @@ RectTransform:
   m_AnchoredPosition: {x: 328.30002, y: 241.3}
   m_SizeDelta: {x: 76.07, y: 76.07}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &6608732408296060944
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426427444396671432}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &3029484790573217527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426427444396671432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad8c02de2fd72c418cbba75f5265283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  dragableObject: {fileID: 1472102105989478298, guid: a1a44c80226a24149b91f82b121b02c1,
+    type: 3}
 --- !u!1 &7426427444665626084
 GameObject:
   m_ObjectHideFlags: 0
