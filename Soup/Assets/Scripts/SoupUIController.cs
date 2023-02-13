@@ -110,6 +110,7 @@ public class SoupUIController : MonoBehaviour
         newItem.GetComponent<Legume>().nom = legume.nom;
         newItem.GetComponent<Legume>().objet = legume.objet;
         newItem.GetComponent<Legume>().isMixed = legume.isMixed;
+        newItem.AddComponent<Legume>();
         newItem.GetComponent<DragDrop>().canvas = canvas;
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { AddLegToSoup(legume); });
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { RemoveVegFromInv(legume); });
