@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4525160411043066420}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed3af81eb553c888bb83606e05e292f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depthBeforeSubmerged: 1
+  depthBeforeSubmerged: 0.1
   displacementAmount: 3
 --- !u!54 &7181876290972920674
 Rigidbody:

@@ -8,7 +8,6 @@ public class SoupUIController : MonoBehaviour
 {
     private Soup soup;
     private Inventaire inventory;
-    private Bounds soupBounds;
     private Renderer soupRenderer;
 
     public GameObject soupSurface;
@@ -22,11 +21,8 @@ public class SoupUIController : MonoBehaviour
         inventory = new Inventaire();
         soup = new Soup();
         soupRenderer = soupSurface.GetComponent<Renderer>();
-        soupBounds = soupRenderer.bounds;
         Debug.Log("New Controller");
         generateInventoryUI();
-
-        Debug.Log("soup bounds: " + soupBounds);
     }
 
     public void AddLegToSoup(Legume legume)
@@ -46,12 +42,12 @@ public class SoupUIController : MonoBehaviour
 
     public void AddMixedBitsToSoup(Legume veg)
     {
-        for(int i = 0; i < Random.Range(1, 1); i++)
+        for(int i = 0; i < Random.Range(1, 4); i++)
         {
             Vector3 spawnPos = new Vector3 (
-                Random.Range(soupBounds.min.x, soupBounds.max.x) * soupRenderer.transform.localScale.x,
+                Random.Range(-1f, 1f),
                 soupRenderer.transform.position.y + .5f,
-                Random.Range(soupBounds.min.y, soupBounds.max.y) * soupRenderer.transform.localScale.x
+                Random.Range(-1f, 1f)
             );
             Instantiate(veg.mixedObject, Vector3.back, Quaternion.identity, soupRenderer.transform).transform.localPosition = spawnPos; 
             

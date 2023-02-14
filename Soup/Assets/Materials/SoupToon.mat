@@ -59,6 +59,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.6
+    - _WaveSpeedX: 1
+    - _WaveSpeedY: 0.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 0, g: 0, b: 1, a: 0}

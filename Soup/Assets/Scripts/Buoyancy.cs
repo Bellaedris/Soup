@@ -23,10 +23,10 @@ public class Buoyancy : MonoBehaviour
     {
         //get the real height of the soup
         float waveOffset = WaveManager.instance.GetWaveLength(transform.position.x, transform.position.z);
-        if (transform.localPosition.y < waveOffset)
+        if (transform.position.y < soupPosition.transform.position.y + waveOffset)
         {
             //if the gameobject is under the soup, apply an upward force 
-            float displacementMultiplier = Mathf.Clamp01((soupPosition.position.y + waveOffset - transform.position.y) / depthBeforeSubmerged) * displacementAmount; 
+            float displacementMultiplier = Mathf.Clamp01((waveOffset + soupPosition.transform.position.y - transform.position.y ) / depthBeforeSubmerged) * displacementAmount; 
             Vector3 force = -Physics.gravity * displacementMultiplier;
             rb.AddForce(force, ForceMode.Acceleration);
         }
