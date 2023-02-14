@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int maxIngredientInventory;
     public Guest guest;
 
+    public Character[] character;
+
     private void Awake() {
         if(instance!=null){
             return;
