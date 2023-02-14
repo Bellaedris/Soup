@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -12,6 +8,8 @@ public class SoupUIController : MonoBehaviour
 {
     private Soup soup;
     private Inventaire inventory;
+    private Renderer soupRenderer;
+
     public GameObject soupSurface;
     public ParticleSystem soupBubbles;
     public GameObject[] legumes;
@@ -22,6 +20,7 @@ public class SoupUIController : MonoBehaviour
     {
         inventory = new Inventaire();
         soup = new Soup();
+        soupRenderer = soupSurface.GetComponent<Renderer>();
         Debug.Log("New Controller");
         generateInventoryUI();
     }
@@ -29,16 +28,30 @@ public class SoupUIController : MonoBehaviour
     public void AddLegToSoup(Legume legume)
     {
         soup.AddLegume(legume);
-        Renderer renderer = soupSurface.GetComponent<Renderer>();
-        renderer.material.SetColor("_Color", soup.computeColor());
+        soupRenderer.material.SetColor("_Color", soup.computeColor());
 
         soupBubbles.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
         soupBubbles.startColor = soup.computeColor();
+        AddMixedBitsToSoup(legume);
     }
 
     public void AddIngToSoup(Ingredient ingredient)
     {
         soup.AddIngredient(ingredient);
+    }
+
+    public void AddMixedBitsToSoup(Legume veg)
+    {
+        for(int i = 0; i < Random.Range(1, 4); i++)
+        {
+            Vector3 spawnPos = new Vector3 (
+                Random.Range(-1f, 1f),
+                soupRenderer.transform.position.y + .5f,
+                Random.Range(-1f, 1f)
+            );
+            Instantiate(veg.mixedObject, Vector3.back, Quaternion.identity, soupRenderer.transform).transform.localPosition = spawnPos; 
+            
+        }
     }
 
     public void RemoveVegFromInv(Legume leg)
@@ -93,6 +106,7 @@ public class SoupUIController : MonoBehaviour
         newItem.GetComponent<Legume>().nom = legume.nom;
         newItem.GetComponent<Legume>().objet = legume.objet;
         newItem.GetComponent<Legume>().isMixed = legume.isMixed;
+        newItem.AddComponent<Legume>();
         newItem.GetComponent<DragDrop>().canvas = canvas;
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { AddLegToSoup(legume); });
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { RemoveVegFromInv(legume); });
@@ -100,4 +114,5 @@ public class SoupUIController : MonoBehaviour
         newItem.transform.GetChild(2).GetComponent<TMP_Text>().text = "x" + numberOfIngredient;
         return newItem;
     }
+    
 } 
