@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +13,9 @@ public class GameManager : MonoBehaviour
     public Guest guest;
 
     public Character[] character;
+    public Soup[] soups;
+
+    public List<Ingredient> ingredientsSoup;
 
     private void Awake() {
         if(instance!=null){
@@ -54,6 +59,10 @@ public class GameManager : MonoBehaviour
 
     public void loadDinnerScene()
     {
+        Debug.Log("loadDinnerScene : "+ ingredientsSoup.Count);
+        string s = TestRecipe();
+        TestPreference(s);
+        Debug.Log("Name soup : " + s);
         if (instance.guest.characterName.Equals(""))
         {
             Debug.Log("Pick a guest please");
@@ -64,4 +73,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public string TestRecipe()
+    {
+        foreach (Soup s in soups)
+        {
+            List<Ingredient> ingredientsRecipe = s.GetIngredients().ToList();
+            if (ingredientsSoup.Count == ingredientsRecipe.Count)
+            {
+                foreach (Ingredient isoup in  ingredientsSoup)
+                {
+                    for (int i = 0; i < ingredientsRecipe.Count; i++)
+                        if (isoup.name.Equals(ingredientsRecipe[i].name))
+                            ingredientsRecipe.RemoveAt(i);
+                    if (ingredientsRecipe.Count == 0)
+                        return s.name;
+                }
+                
+            }
+        }
+        return "commun";
+    }
+
+    public void TestPreference(string soupName)
+    {
+        if (character[0].favSoup.name.Equals(soupName))
+            character[0].IsFavSoupKnown = true;
+        foreach (Ingredient isoup in ingredientsSoup)
+            for (int i = 0; i < character[0].favIngredients.Count; i++)
+                if (isoup == character[0].favIngredients[i])
+                    character[0].isFavIngredientsKnown[i] = true;
+    }
 }

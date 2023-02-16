@@ -42,15 +42,15 @@ public class SoupUIController : MonoBehaviour
 
     public void AddMixedBitsToSoup(Legume veg)
     {
-        for(int i = 0; i < Random.Range(1, 4); i++)
+        for (int i = 0; i < Random.Range(1, 4); i++)
         {
-            Vector3 spawnPos = new Vector3 (
+            Vector3 spawnPos = new Vector3(
                 Random.Range(-1f, 1f),
                 soupRenderer.transform.position.y + .5f,
                 Random.Range(-1f, 1f)
             );
-            Instantiate(veg.mixedObject, Vector3.back, Quaternion.identity, soupRenderer.transform).transform.localPosition = spawnPos; 
-            
+            Instantiate(veg.mixedObject, Vector3.back, Quaternion.identity, soupRenderer.transform).transform.localPosition = spawnPos;
+
         }
     }
 
@@ -63,7 +63,7 @@ public class SoupUIController : MonoBehaviour
         UpdateInventoryUI();
 
     }
-    
+
     private void UpdateInventoryUI()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("inventoryItem");
@@ -73,17 +73,17 @@ public class SoupUIController : MonoBehaviour
         }
         generateInventoryUI();
     }
-    
+
 
     public void AddLegToInv()
     {
-        Debug.Log("feur");   
+        Debug.Log("feur");
     }
 
     public void generateInventoryUI()
     {
         Debug.Log("Generate Inventory");
-        
+
         Inventaire inventaire = Inventaire.instance;
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
         foreach (KeyValuePair<Legume, int> kvp in inventaire.inventaireLegumes)
@@ -114,5 +114,11 @@ public class SoupUIController : MonoBehaviour
         newItem.transform.GetChild(2).GetComponent<TMP_Text>().text = "x" + numberOfIngredient;
         return newItem;
     }
-    
-} 
+
+    public void EndSoup() 
+    {
+        GameManager.instance.ingredientsSoup = soup.GetIngredients();
+        GameManager.instance.loadDinnerScene();
+    }
+
+}

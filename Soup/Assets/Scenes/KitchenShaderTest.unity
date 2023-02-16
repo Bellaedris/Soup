@@ -852,9 +852,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383308713}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: loadDinnerScene
+      - m_Target: {fileID: 383308714}
+        m_TargetAssemblyTypeName: SoupUIController, Assembly-CSharp
+        m_MethodName: EndSoup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1267,6 +1267,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxIngredientInventory: 0
   guest: {fileID: 0}
+  character:
+  - {fileID: 8394833879044121285, guid: 0fe00645273f9864b8dcd3ceb81912a1, type: 3}
+  - {fileID: 1200340705280634689, guid: 6c71929488c1b744aa2a5ce17f27f906, type: 3}
+  soups:
+  - {fileID: -1649279031902866970, guid: 5cac24d2fea1a4f4e87ed62106ff8099, type: 3}
+  - {fileID: -5225335091299892435, guid: c6a3ac6b90e20714490545836595248b, type: 3}
+  - {fileID: -1649279031902866970, guid: 6de41c717ad2f5f40bce812987087611, type: 3}
+  ingredientsSoup: []
 --- !u!114 &383308714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4663,7 +4671,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 306442141}
   m_HandleRect: {fileID: 306442140}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

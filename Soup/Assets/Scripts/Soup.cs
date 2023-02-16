@@ -53,7 +53,7 @@ public class Soup : MonoBehaviour
 
     public void AddIngredient(Ingredient ingredient)
     {
-        ingredients.Add(ingredient);
+        ingredients.Add(ingredient);        
     }
 
     public List<Ingredient> GetIngredients()
