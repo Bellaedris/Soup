@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Guest guest;
     public List<Character> characterList;
 
+    public Character[] character;
+
     private void Awake() {
         if(instance!=null){
             return;

@@ -36,23 +36,6 @@ public class BookPerso : MonoBehaviour
     private bool next;
     private bool previous;
 
-    public class Character
-    {
-
-        public Dictionary<string, bool> favoriteFood = new Dictionary<string, bool>();
-        public Dictionary<string, bool> favoriteSoupe = new Dictionary<string, bool>();
-
-        public Character()
-        {
-            string text = "azerty";
-            string text2 = "azerty2";
-            favoriteFood.Add(text, true);
-            favoriteFood.Add(text2, false);
-            favoriteSoupe.Add(text, false);
-        }
-
-    };
-
     public void Next()
     {
         next = true;
@@ -64,15 +47,9 @@ public class BookPerso : MonoBehaviour
     }
     void Start()
     {
-        characters = new Character[bookPages.Length - 1];
-        for(int i=0; i<characters.Length; i++)
-        {
-            characters[i] = new Character();
-        }
-        characters[3].favoriteFood["azerty"] = false;
-        characters[2].favoriteFood["azerty2"] = true;
-        characters[2].favoriteSoupe["azerty"] = true;
-        characters[0].favoriteSoupe["azerty"] = true;
+        Debug.Log("Guest : " + GameManager.instance.character);
+        characters = GameManager.instance.character;
+        Debug.Log("name 0 : " + GameManager.instance.character[0].name);
 
         if (!canvas) canvas = GetComponentInParent<Canvas>();
         if (!canvas) Debug.LogError("Book should be a child to canvas");
@@ -87,9 +64,8 @@ public class BookPerso : MonoBehaviour
 
     void Update()
     {
-       //if (next && currentPage < bookPages.Length)
-           
-        if (Input.GetKeyDown(KeyCode.Z) && currentPage < bookPages.Length)
+       //if (next && currentPage < bookPages.Length)           
+        if (Input.GetKeyDown(KeyCode.Z) && currentPage + 1 < bookPages.Length)
         {
             next = false;
             UpdateBookRTLToPoint();
@@ -111,24 +87,24 @@ public class BookPerso : MonoBehaviour
             // Display the vegetables you like best that you know
             for (int i = 0; i < 2; i++) 
             {
-                if (characters[currentPage - 1].favoriteFood.Values.ElementAt(i)) // For Right page
+                if (characters[currentPage - 1].isFavIngredientsKnown[i]) // For Right page
                     RCache[i].enabled = false;
                 else
                     RCache[i].enabled = true;
 
-                if (characters[currentPage - 2].favoriteFood.Values.ElementAt(i)) // For Left page
+                if (characters[currentPage - 2].isFavIngredientsKnown[i]) // For Left page
                     LCache[i].enabled = false;
                 else
                     LCache[i].enabled = true;
             }
             Left.sprite = bookPages[currentPage - 1];
             // Display the soup you like best that you know
-            if (characters[currentPage - 1].favoriteSoupe.Values.ElementAt(0)) // For Right page
+            if (characters[currentPage - 1].IsFavSoupKnown) // For Right page
                 RCache[2].enabled = false;
             else
                 RCache[2].enabled = true;
 
-            if (characters[currentPage - 2].favoriteSoupe.Values.ElementAt(0)) // For Left page
+            if (characters[currentPage - 2].IsFavSoupKnown) // For Left page
                 LCache[2].enabled = false;
             else
                 LCache[2].enabled = true;
@@ -153,13 +129,13 @@ public class BookPerso : MonoBehaviour
             // Display the vegetables you like best that you know
             for (int i = 0; i < 2; i++) // For Rigth page
             {
-                if (characters[currentPage - 1].favoriteFood.Values.ElementAt(i))
+                if (characters[currentPage - 1].isFavIngredientsKnown[i])
                     RCache[i].enabled = false;
                 else
                     RCache[i].enabled = true;
             }
             // Display the soup you like best that you know Right
-            if (characters[currentPage - 1].favoriteSoupe.Values.ElementAt(0))
+            if (characters[currentPage - 1].IsFavSoupKnown)
                 RCache[2].enabled = false;
             else
                 RCache[2].enabled = true;
@@ -178,13 +154,13 @@ public class BookPerso : MonoBehaviour
         // Display the vegetables you like best that you know
         for (int i = 0; i < 2; i++) // For Left Page
         {
-            if (characters[currentPage - 2].favoriteFood.Values.ElementAt(i))
+            if (characters[currentPage - 2].isFavIngredientsKnown[i])
                 LCache[i].enabled = false;
             else
                 LCache[i].enabled = true;
         }
         // Display the soup you like best that you know Left
-        if (characters[currentPage - 2].favoriteSoupe.Values.ElementAt(0))
+        if (characters[currentPage - 2].IsFavSoupKnown)
             LCache[2].enabled = false;
         else
             LCache[2].enabled = true;

@@ -115,9 +115,9 @@ MonoBehaviour:
   favIngredients:
   - {fileID: 3514065782988179495, guid: 0994015d4cbd89740900dff3c4c21cb7, type: 3}
   - {fileID: 7198098997422114639, guid: 48cf5d887395e8640a144122a88db4a7, type: 3}
-  isFavIngredientsKnown: 0000
+  isFavIngredientsKnown: 0100
   favSoup: {fileID: -1649279031902866970, guid: 5cac24d2fea1a4f4e87ed62106ff8099,
     type: 3}
-  IsFavSoupKnown: 0
+  IsFavSoupKnown: 1
   friend: {fileID: 0}
   affection: 0
