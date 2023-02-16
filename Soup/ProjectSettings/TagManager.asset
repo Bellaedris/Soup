@@ -13,6 +13,7 @@ TagManager:
   - PosBroccoli
   - PosLeak
   - Character
+  - UILegumeObject
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,6 @@ TagManager:
   - 
   - MouseHover
   - Distortion
-  - 
-  - 
   - 
   - 
   - 

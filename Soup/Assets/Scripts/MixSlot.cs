@@ -11,9 +11,21 @@ public class MixSlot : MonoBehaviour, IDropHandler
         if(eventData.pointerDrag != null)
         {
             Debug.Log("Mix " + eventData.pointerDrag.GetComponent<Legume>().nom);
+            Legume incomingLegume = eventData.pointerDrag.GetComponent<Legume>();
+
             SoupUIController soupUI = FindObjectOfType<SoupUIController>();
-            soupUI.AddLegToSoup(eventData.pointerDrag.GetComponent<Legume>());
-            soupUI.RemoveVegFromInv(eventData.pointerDrag.GetComponent<Legume>());
+            soupUI.AddLegToSoup(incomingLegume);
+            Inventaire inventaire = Inventaire.instance;
+
+            foreach (KeyValuePair<Legume, int> kvp in inventaire.inventaireLegumes)
+            {
+                //Debug.Log(kvp.Key.nom);
+                if (kvp.Key.nom == incomingLegume.nom)
+                {
+                    soupUI.RemoveVegFromInv(kvp.Key);
+                    DragDrop.updateLayer("UILegumeObject", 0);
+                }
+            }
         }
     }
 }

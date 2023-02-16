@@ -22,14 +22,20 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.blocksRaycasts = false;
         dragable = Instantiate(dragableObject, transform);
         dragable.transform.GetChild(1).GetComponent<MeshFilter>().mesh = eventData.pointerDrag.GetComponent<Legume>().objet;
+        if (eventData.pointerDrag.GetComponent<Legume>() != null)
+        {
+            updateLayer("UILegumeObject", 3);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log("Feur");
+        updateLayer("UILegumeObject", 0);
+
         GameObject.Destroy(dragable);
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -40,5 +46,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
     }
 
-    
+    public static void updateLayer(string tag, int layer)
+    {
+        foreach (var item in GameObject.FindGameObjectsWithTag(tag))
+        {
+            item.layer = layer;
+        }
+    }
 }
