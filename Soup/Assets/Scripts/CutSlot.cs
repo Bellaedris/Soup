@@ -5,6 +5,12 @@ using UnityEngine.EventSystems;
 
 public class CutSlot : MonoBehaviour, IDropHandler 
 {
+    private AudioManager am;
+
+    private void Awake() {
+        am = GameObject.FindObjectOfType<AudioManager>();
+    }
+    
     public void OnDrop(PointerEventData eventData)
     {
         
@@ -25,6 +31,7 @@ public class CutSlot : MonoBehaviour, IDropHandler
                 {
                     soupUI.RemoveVegFromInv(kvp.Key);
                     DragDrop.updateLayer("UILegumeObject", 0);
+                    am.Play("Knife");
                 }
             }
         }

@@ -5,6 +5,12 @@ using UnityEngine.EventSystems;
 
 public class MixSlot : MonoBehaviour, IDropHandler 
 {
+    private AudioManager am;
+
+    private void Awake() {
+        am = GameObject.FindObjectOfType<AudioManager>();
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log(eventData.pointerDrag.name);
@@ -24,6 +30,7 @@ public class MixSlot : MonoBehaviour, IDropHandler
                 {
                     soupUI.RemoveVegFromInv(kvp.Key);
                     DragDrop.updateLayer("UILegumeObject", 0);
+                    am.Play("Blender");
                 }
             }
         }
