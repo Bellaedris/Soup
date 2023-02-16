@@ -114,14 +114,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: screaming_neon SDF
+  m_Name: screaming_neon SDF 1
   m_EditorClassIdentifier: 
   hashCode: 28090543
   material: {fileID: -4625262916578547835}
   materialHashCode: 1839587375
   m_Version: 1.1.0
   m_SourceFontFileGUID: e84b9cb8771eb8c419a752a0a531a295
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e84b9cb8771eb8c419a752a0a531a295, type: 3}
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: e84b9cb8771eb8c419a752a0a531a295,
+    type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
