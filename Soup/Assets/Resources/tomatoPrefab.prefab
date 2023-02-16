@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6990074607170813626}
   - component: {fileID: -7575470349400008364}
   - component: {fileID: 3112131354652786455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tomatoPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
