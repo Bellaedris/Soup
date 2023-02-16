@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -12,33 +8,50 @@ public class SoupUIController : MonoBehaviour
 {
     private Soup soup;
     private Inventaire inventory;
+    private Renderer soupRenderer;
+
     public GameObject soupSurface;
     public ParticleSystem soupBubbles;
     public GameObject[] legumes;
     public GameObject inventoryItem;
-
+    [SerializeField] private Canvas canvas;
 
     private void Start()
     {
         inventory = new Inventaire();
         soup = new Soup();
-        //Debug.Log("New Controller");
+        soupRenderer = soupSurface.GetComponent<Renderer>();
+        Debug.Log("New Controller");
         generateInventoryUI();
     }
 
     public void AddLegToSoup(Legume legume)
     {
         soup.AddLegume(legume);
-        Renderer renderer = soupSurface.GetComponent<Renderer>();
-        renderer.material.SetColor("_Color", soup.computeColor());
+        soupRenderer.material.SetColor("_Color", soup.computeColor());
 
         soupBubbles.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
         soupBubbles.startColor = soup.computeColor();
+        AddMixedBitsToSoup(legume);
     }
 
     public void AddIngToSoup(Ingredient ingredient)
     {
         soup.AddIngredient(ingredient);
+    }
+
+    public void AddMixedBitsToSoup(Legume veg)
+    {
+        for (int i = 0; i < Random.Range(1, 4); i++)
+        {
+            Vector3 spawnPos = new Vector3(
+                Random.Range(-1f, 1f),
+                soupRenderer.transform.position.y + .5f,
+                Random.Range(-1f, 1f)
+            );
+            Instantiate(veg.mixedObject, Vector3.back, Quaternion.identity, soupRenderer.transform).transform.localPosition = spawnPos;
+
+        }
     }
 
     public void RemoveVegFromInv(Legume leg)
@@ -50,7 +63,7 @@ public class SoupUIController : MonoBehaviour
         UpdateInventoryUI();
 
     }
-    
+
     private void UpdateInventoryUI()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("inventoryItem");
@@ -60,22 +73,22 @@ public class SoupUIController : MonoBehaviour
         }
         generateInventoryUI();
     }
-    
+
 
     public void AddLegToInv()
     {
-        Debug.Log("feur");   
+        Debug.Log("feur");
     }
 
     public void generateInventoryUI()
     {
-        //Debug.Log("Generate Inventory");
-        
+        Debug.Log("Generate Inventory");
+
         Inventaire inventaire = Inventaire.instance;
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
         foreach (KeyValuePair<Legume, int> kvp in inventaire.inventaireLegumes)
         {
-            //Debug.Log(kvp.Key.nom);
+            Debug.Log(kvp.Key.nom);
             if (kvp.Value > 0)
             {
                 GameObject newItem = createInventoryItem(itemSpawner.transform, kvp.Value, kvp.Key);
@@ -87,10 +100,25 @@ public class SoupUIController : MonoBehaviour
     {
         GameObject newItem;
         newItem = Instantiate(inventoryItem, itemSpawner);
+        newItem.AddComponent<Legume>();
+        newItem.GetComponent<Legume>().couleur = legume.couleur;
+        newItem.GetComponent<Legume>().name = legume.name;
+        newItem.GetComponent<Legume>().nom = legume.nom;
+        newItem.GetComponent<Legume>().objet = legume.objet;
+        newItem.GetComponent<Legume>().isMixed = legume.isMixed;
+        newItem.AddComponent<Legume>();
+        newItem.GetComponent<DragDrop>().canvas = canvas;
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { AddLegToSoup(legume); });
         newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { RemoveVegFromInv(legume); });
         newItem.transform.GetChild(1).GetComponent<MeshFilter>().mesh = legume.objet;
         newItem.transform.GetChild(2).GetComponent<TMP_Text>().text = "x" + numberOfIngredient;
         return newItem;
     }
-} 
+
+    public void EndSoup() 
+    {
+        GameManager.instance.ingredientsSoup = soup.GetIngredients();
+        GameManager.instance.loadDinnerScene();
+    }
+
+}

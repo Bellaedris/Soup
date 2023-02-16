@@ -12,6 +12,15 @@ public class Ingredient : MonoBehaviour
         this.nom = nom;
         this.objet = objet;
     }
+
+    private void OnMouseOver() {
+        gameObject.layer = 7;
+    }
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        gameObject.layer = 0;
+    }
 }
 
 

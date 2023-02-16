@@ -113,10 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1200340705280634688}
   favIngredients:
+  - {fileID: 3514065782988179495, guid: 0994015d4cbd89740900dff3c4c21cb7, type: 3}
   - {fileID: 7198098997422114639, guid: bad8e268c1baa804e8bc30ccd7ed46bb, type: 3}
-  - {fileID: 7198098997422114639, guid: b993d295e566eea4d909d057f9af3381, type: 3}
-  isFavIngredientsKnown: 0000
-  favSoup: {fileID: 0}
+  isFavIngredientsKnown: 0001
+  favSoup: {fileID: -5225335091299892435, guid: c6a3ac6b90e20714490545836595248b,
+    type: 3}
   IsFavSoupKnown: 0
   friend: {fileID: 0}
   affection: 0

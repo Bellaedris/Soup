@@ -10,9 +10,10 @@ public class Inventaire : MonoBehaviour
     public List<Ingredient> listInventaireIngredients;
     public List<int> listInventaireIngredientsNumber;
 
+    public int maxIngredientInventory;
+
     void Awake()
     {
-        //Debug.Log("yiiiiiiiiiiiiiii");
         if (instance != null)
         {
             return;

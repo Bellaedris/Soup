@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6990074607170813626}
   - component: {fileID: -2285556960203071333}
   - component: {fileID: -2067898724830939466}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: broccoliPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +52,7 @@ MonoBehaviour:
   objet: {fileID: -7387706064836869012, guid: f4a5b60605586124bafa55c12d656bb0, type: 3}
   isMixed: 1
   couleur: {r: 0.04805981, g: 0.3773585, b: 0.15823624, a: 0}
+  mixedObject: {fileID: 0}
 --- !u!23 &4941250090894007729
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: a397a2fb343f5bf4f9958105cd4b219f, type: 3}
+  - {fileID: 2100000, guid: 421a93e694db90f1c90f1aa0fb485811, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
