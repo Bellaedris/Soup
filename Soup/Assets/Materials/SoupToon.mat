@@ -58,9 +58,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.6
+    - _Smoothness: 2.8
+    - _WaveSpeedX: 1
+    - _WaveSpeedY: 0.2
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.43073723, b: 0.06132078, a: 1}
     - _Direction: {r: 0, g: 0, b: 1, a: 0}
     - _Specular: {r: 1, g: 1, b: 1, a: 1}
     - _Specular_Color: {r: 1, g: 1, b: 1, a: 1}

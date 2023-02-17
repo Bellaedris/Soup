@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class Soup : MonoBehaviour
 {
+    [SerializeField]
     private List<Ingredient> ingredients;
     private int nbLegumes;
     private List<Color> colors;
 
+    void Awake()
+    {
+        Debug.Log("Coucou");
+    }
 
     private void Start()
     {
@@ -55,5 +60,15 @@ public class Soup : MonoBehaviour
     public void AddIngredient(Ingredient ingredient)
     {
         ingredients.Add(ingredient);
+    }
+
+    public List<Ingredient> GetIngredients()
+    {
+        return ingredients;
+    }
+
+    public bool containsIngredient(Ingredient i)
+    {
+        return ingredients.Contains(i);
     }
 }
