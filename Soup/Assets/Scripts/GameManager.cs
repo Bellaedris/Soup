@@ -44,13 +44,16 @@ public class GameManager : MonoBehaviour
 
     public void loadCuisineScene() 
     {
-        if(instance.guest.characterName.Equals(""))
+        SceneManager.LoadScene(1);
+        
+        if(instance.guest.characterName.Equals("") || instance.guest == null )
         {
             Debug.Log("Pick a guest please");
         } else
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("KitchenUI");
         }
+        
     }
 
     public void loadDinnerScene()
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene("Dinner");
         }
     }
 
