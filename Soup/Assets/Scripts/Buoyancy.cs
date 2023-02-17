@@ -19,7 +19,7 @@ public class Buoyancy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //get the real height of the soup
         float waveOffset = WaveManager.instance.GetWaveLength(transform.position.x, transform.position.z);
