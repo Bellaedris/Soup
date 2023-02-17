@@ -3,16 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Carrot
+  - PosCarrots
+  - PosTomato
+  - PosBasket
+  - ItemSpawner
+  - inventoryItem
+  - PosBroccoli
+  - PosLeak
+  - LeftArrow
+  - RightArrow
+  - UILegumeObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Outline
   - Water
   - UI
-  - 
-  - 
+  - MouseHover
+  - Distortion
   - 
   - 
   - 

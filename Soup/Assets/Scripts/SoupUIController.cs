@@ -44,11 +44,12 @@ public class SoupUIController : MonoBehaviour
         for(int i = 0; i < Random.Range(1, 4); i++)
         {
             Vector3 spawnPos = new Vector3 (
-                Random.Range(-1f, 1f),
-                soupRenderer.transform.position.y + .5f,
-                Random.Range(-1f, 1f)
+                Random.Range(-.8f, .8f),
+                soupRenderer.transform.localPosition.y + .5f,
+                Random.Range(-.8f, .8f)
             );
-            Instantiate(veg.mixedObject, Vector3.back, Quaternion.identity, soupRenderer.transform).transform.localPosition = spawnPos; 
+            Quaternion randomRotation = Quaternion.AngleAxis(Random.Range(0f, 90f), Vector3.left);
+            Instantiate(veg.mixedObject, Vector3.back, randomRotation, soupRenderer.transform).transform.localPosition = spawnPos; 
             
         }
     }
