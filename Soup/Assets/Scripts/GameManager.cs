@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void loadCuisineScene() 
     {
-        if(instance.guest.characterName.Equals(""))
+        if(instance.guest == null || instance.guest.characterName.Equals(""))
         {
             Debug.Log("Pick a guest please");
         } else
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         string s = TestRecipe();
         TestPreference(s);
         Debug.Log("Name soup : " + s);
-        if (instance.guest.characterName.Equals(""))
+        if (instance.guest == null || instance.guest.characterName.Equals(""))
         {
             Debug.Log("Pick a guest please");
         }
@@ -97,6 +97,9 @@ public class GameManager : MonoBehaviour
 
     public void TestPreference(string soupName)
     {
+        if(character.Length == 0){
+            return;
+        }
         if (character[0].favSoup.name.Equals(soupName))
             character[0].IsFavSoupKnown = true;
         foreach (Ingredient isoup in ingredientsSoup)
