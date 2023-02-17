@@ -41,7 +41,7 @@ public class SoupUIController : MonoBehaviour
 
     public void AddMixedBitsToSoup(Legume veg)
     {
-        for(int i = 0; i < Random.Range(1, 4); i++)
+        for (int i = 0; i < Random.Range(1, 4); i++)
         {
             Vector3 spawnPos = new Vector3 (
                 Random.Range(-.8f, .8f),
@@ -83,11 +83,11 @@ public class SoupUIController : MonoBehaviour
         }
         generateInventoryUI();
     }
-    
+
 
     public void AddLegToInv()
     {
-        Debug.Log("feur");   
+        Debug.Log("feur");
     }
 
     public void generateInventoryUI()
@@ -136,4 +136,10 @@ public class SoupUIController : MonoBehaviour
         return newItem;
     }
 
-} 
+    public void EndSoup() 
+    {
+        GameManager.instance.ingredientsSoup = soup.GetIngredients();
+        GameManager.instance.loadDinnerScene();
+    }
+
+}

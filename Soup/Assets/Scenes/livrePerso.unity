@@ -1166,9 +1166,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 31a3b2e782894dd46bb43337bcf6a2b5, type: 3}
   - {fileID: 21300000, guid: d3b19cc8a65b48c4ea3d71ba98a1dff8, type: 3}
   - {fileID: 21300000, guid: adbca0758b9de814d92822dd1f1a6406, type: 3}
-  - {fileID: 21300000, guid: 5e242c3d33f11014d99ae34ae4c94691, type: 3}
-  - {fileID: 21300000, guid: d3b19cc8a65b48c4ea3d71ba98a1dff8, type: 3}
-  - {fileID: 21300000, guid: adbca0758b9de814d92822dd1f1a6406, type: 3}
   whitePages:
   - {fileID: 21300000, guid: ece57481cb7d36349a6a4153f0586404, type: 3}
   - {fileID: 21300000, guid: 5df06457064bfc64e805150f0c786bc4, type: 3}
