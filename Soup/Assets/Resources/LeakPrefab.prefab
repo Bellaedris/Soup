@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6990074607170813626}
   - component: {fileID: -4154871543234310741}
   - component: {fileID: 5493348092915639099}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeakPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

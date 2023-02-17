@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3612180476238344658}
   - component: {fileID: 7638376791095153611}
   - component: {fileID: 7454119908876722081}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: carrotPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

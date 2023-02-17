@@ -12,7 +12,9 @@ TagManager:
   - inventoryItem
   - PosBroccoli
   - PosLeak
-  - Character
+  - LeftArrow
+  - RightArrow
+  - UILegumeObject
   layers:
   - Default
   - TransparentFX
@@ -20,10 +22,8 @@ TagManager:
   - Outline
   - Water
   - UI
-  - 
   - MouseHover
   - Distortion
-  - 
   - 
   - 
   - 

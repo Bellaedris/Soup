@@ -21,7 +21,7 @@ public class SoupUIController : MonoBehaviour
         inventory = new Inventaire();
         soup = new Soup();
         soupRenderer = soupSurface.GetComponent<Renderer>();
-        Debug.Log("New Controller");
+        //Debug.Log("New Controller");
         generateInventoryUI();
     }
 
@@ -32,7 +32,6 @@ public class SoupUIController : MonoBehaviour
 
         soupBubbles.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
         soupBubbles.startColor = soup.computeColor();
-        AddMixedBitsToSoup(legume);
     }
 
     public void AddIngToSoup(Ingredient ingredient)
@@ -44,13 +43,14 @@ public class SoupUIController : MonoBehaviour
     {
         for (int i = 0; i < Random.Range(1, 4); i++)
         {
-            Vector3 spawnPos = new Vector3(
-                Random.Range(-1f, 1f),
-                soupRenderer.transform.position.y + .5f,
-                Random.Range(-1f, 1f)
+            Vector3 spawnPos = new Vector3 (
+                Random.Range(-.8f, .8f),
+                soupRenderer.transform.localPosition.y + .5f,
+                Random.Range(-.8f, .8f)
             );
-            Instantiate(veg.mixedObject, Vector3.back, Quaternion.identity, soupRenderer.transform).transform.localPosition = spawnPos;
-
+            Quaternion randomRotation = Quaternion.AngleAxis(Random.Range(0f, 90f), Vector3.left);
+            Instantiate(veg.mixedObject, Vector3.back, randomRotation, soupRenderer.transform).transform.localPosition = spawnPos; 
+            
         }
     }
 
@@ -60,6 +60,16 @@ public class SoupUIController : MonoBehaviour
 
         int currentValue = inventaire.inventaireLegumes[leg];
         inventaire.inventaireLegumes[leg] = currentValue - 1;
+        UpdateInventoryUI();
+
+    }
+
+    public void RemoveIngFromInv(Ingredient ing)
+    {
+        Inventaire inventaire = Inventaire.instance;
+
+        int currentValue = inventaire.inventaireIngredients[ing];
+        inventaire.inventaireIngredients[ing] = currentValue - 1;
         UpdateInventoryUI();
 
     }
@@ -82,7 +92,7 @@ public class SoupUIController : MonoBehaviour
 
     public void generateInventoryUI()
     {
-        Debug.Log("Generate Inventory");
+        //Debug.Log("Generate Inventory");
 
         Inventaire inventaire = Inventaire.instance;
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
@@ -91,12 +101,12 @@ public class SoupUIController : MonoBehaviour
             Debug.Log(kvp.Key.nom);
             if (kvp.Value > 0)
             {
-                GameObject newItem = createInventoryItem(itemSpawner.transform, kvp.Value, kvp.Key);
+                GameObject newItem = createLegumeInventoryItem(itemSpawner.transform, kvp.Value, kvp.Key);
                 newItem.transform.parent = itemSpawner.transform;
             }
         }
     }
-    public GameObject createInventoryItem(Transform itemSpawner, int numberOfIngredient, Legume legume)
+    public GameObject createLegumeInventoryItem(Transform itemSpawner, int numberOfIngredient, Legume legume)
     {
         GameObject newItem;
         newItem = Instantiate(inventoryItem, itemSpawner);
@@ -106,11 +116,22 @@ public class SoupUIController : MonoBehaviour
         newItem.GetComponent<Legume>().nom = legume.nom;
         newItem.GetComponent<Legume>().objet = legume.objet;
         newItem.GetComponent<Legume>().isMixed = legume.isMixed;
-        newItem.AddComponent<Legume>();
+        newItem.GetComponent<Legume>().mixedObject = legume.mixedObject;
         newItem.GetComponent<DragDrop>().canvas = canvas;
-        newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { AddLegToSoup(legume); });
-        newItem.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { RemoveVegFromInv(legume); });
         newItem.transform.GetChild(1).GetComponent<MeshFilter>().mesh = legume.objet;
+        newItem.transform.GetChild(2).GetComponent<TMP_Text>().text = "x" + numberOfIngredient;
+        return newItem;
+    }
+
+    public GameObject createIngInventoryItem(Transform itemSpawner, int numberOfIngredient, Ingredient ing)
+    {
+        GameObject newItem;
+        newItem = Instantiate(inventoryItem, itemSpawner);
+        newItem.AddComponent<Ingredient>();
+        newItem.GetComponent<Ingredient>().nom = ing.nom;
+        newItem.GetComponent<Ingredient>().objet = ing.objet;
+        newItem.GetComponent<DragDrop>().canvas = canvas;
+        newItem.transform.GetChild(1).GetComponent<MeshFilter>().mesh = ing.objet;
         newItem.transform.GetChild(2).GetComponent<TMP_Text>().text = "x" + numberOfIngredient;
         return newItem;
     }

@@ -3413,10 +3413,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -2359.0,
-            "y": -221.0,
+            "x": -2385.0,
+            "y": -220.00001525878907,
             "width": 118.0,
-            "height": 34.00004577636719
+            "height": 34.0
         }
     },
     "m_Slots": [
