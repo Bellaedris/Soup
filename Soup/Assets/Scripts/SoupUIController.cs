@@ -12,7 +12,6 @@ public class SoupUIController : MonoBehaviour
 
     public GameObject soupSurface;
     public ParticleSystem soupBubbles;
-    public GameObject[] legumes;
     public GameObject inventoryItem;
     [SerializeField] private Canvas canvas;
 
@@ -138,8 +137,14 @@ public class SoupUIController : MonoBehaviour
 
     public void EndSoup() 
     {
-        GameManager.instance.ingredientsSoup = soup.GetIngredients();
-        GameManager.instance.loadDinnerScene();
+        foreach(var ing in soup.GetIngredients())
+        {
+            GameManager.instance.ingredientsSoup.Add(ing.Clone());
+        }
+
+        //GameManager.instance.soup = soup.Clone();
+        
+        GameManager.instance.loadDinnerScene(soup);
     }
 
 }

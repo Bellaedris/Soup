@@ -6,7 +6,10 @@ public class DinnerManager : MonoBehaviour
 {
 
     public GameObject guestPrefab;
-    public GameObject soup;
+    public Soup soup;
+
+    public GameObject soupSurface;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +23,14 @@ public class DinnerManager : MonoBehaviour
             guestPrefab = (GameObject)Resources.Load("prefab/Characters/"+guestName, typeof(GameObject));
             guestPrefab.transform.localScale = Vector3.one;
             Instantiate(guestPrefab, new Vector3(-20.2f, 0.5f, -6.2f), Quaternion.identity);
+
+            soup = GameManager.instance.GetComponent<Soup>();
+            soupSurface.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor()); 
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
