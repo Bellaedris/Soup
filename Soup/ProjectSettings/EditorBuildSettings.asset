@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KitchenUI.unity
     guid: d0193b4f88877954583cc833a8cb98e0
+  - enabled: 1
+    path: Assets/Scenes/MorningScene.unity
+    guid: bbcce238273fff140b421d6f495dae9d
   m_configObjects: {}

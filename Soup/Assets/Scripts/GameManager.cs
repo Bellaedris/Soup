@@ -82,6 +82,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(2);      
     }
 
+    public void loadMorningScene()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+
     public string TestRecipe()
     {
         foreach (Soup s in soups)
