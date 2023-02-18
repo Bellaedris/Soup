@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public Soup[] soups;
 
     public List<Ingredient> ingredientsSoup;
-
     public GameObject characterBook;
     public GameObject recipeBook;
 
@@ -61,9 +60,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void loadDinnerScene()
+    public void loadDinnerScene(Soup finishedSoup)
     {
-        Debug.Log("loadDinnerScene : "+ ingredientsSoup.Count);
         string s = TestRecipe();
         TestPreference(s);
         Debug.Log("Name soup : " + s);
@@ -73,6 +71,27 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            // adds a soup gameobject next to the manager that will live through the scene change
+            Soup soup;
+            if (gameObject.GetComponent<Soup>() == null) 
+                soup = gameObject.AddComponent<Soup>() as Soup;
+            else
+                soup = gameObject.GetComponent<Soup>() as Soup;
+            
+            soup.ingredients = new List<Ingredient>();
+            soup.nbLegumes = finishedSoup.nbLegumes;
+            soup.colors = new List<Color>();
+
+            foreach(var ing in finishedSoup.ingredients)
+            {
+                soup.ingredients.Add(ing.Clone());
+            }
+
+            foreach(var col in finishedSoup.colors)
+            {
+                soup.colors.Add(new Color(col.r, col.g, col.b));
+            }
+
             SceneManager.LoadScene(4);
         }
     }
@@ -132,4 +151,5 @@ public class GameManager : MonoBehaviour
             characterBook.SetActive(false);
         recipeBook.SetActive(!recipeBook.activeSelf);
     }
+
 }

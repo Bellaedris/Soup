@@ -400,7 +400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 144.6389, y: -50}
+  m_AnchoredPosition: {x: 144.64857, y: -50}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120285995
@@ -1194,6 +1194,7 @@ MonoBehaviour:
   - {fileID: -5225335091299892435, guid: c6a3ac6b90e20714490545836595248b, type: 3}
   - {fileID: -1649279031902866970, guid: 5cac24d2fea1a4f4e87ed62106ff8099, type: 3}
   ingredientsSoup: []
+  soup: {fileID: 0}
   characterBook: {fileID: 0}
   recipeBook: {fileID: 0}
 --- !u!114 &383308714
@@ -1210,7 +1211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soupSurface: {fileID: 1031003337}
   soupBubbles: {fileID: 358927467}
-  legumes: []
   inventoryItem: {fileID: 7426427444396671432, guid: 9dfe84b922fc60947a643840786594ef,
     type: 3}
   canvas: {fileID: 1255163953}
@@ -2945,9 +2945,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383308713}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: loadDinnerScene
+      - m_Target: {fileID: 383308714}
+        m_TargetAssemblyTypeName: SoupUIController, Assembly-CSharp
+        m_MethodName: EndSoup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
