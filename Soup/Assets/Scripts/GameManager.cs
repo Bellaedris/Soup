@@ -77,6 +77,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void loadMarketScene()
+    {
+        SceneManager.LoadScene(2);      
+    }
+
     public string TestRecipe()
     {
         foreach (Soup s in soups)
