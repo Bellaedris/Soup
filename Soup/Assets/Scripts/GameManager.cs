@@ -71,7 +71,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Soup soup = gameObject.AddComponent<Soup>() as Soup;
+            // adds a soup gameobject next to the manager that will live through the scene change
+            Soup soup;
+            if (gameObject.GetComponent<Soup>() == null) 
+                soup = gameObject.AddComponent<Soup>() as Soup;
+            else
+                soup = gameObject.GetComponent<Soup>() as Soup;
+            
             soup.ingredients = new List<Ingredient>();
             soup.nbLegumes = finishedSoup.nbLegumes;
             soup.colors = new List<Color>();
