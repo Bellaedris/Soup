@@ -4,11 +4,12 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public ErrorNotificationController errorNotificationController;
     public int maxIngredientInventory;
     public Guest guest;
     public List<Character> characterList;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public List<Ingredient> ingredientsSoup;
 
+    public Text notificationText;
     private void Awake() {
         if(instance!=null){
             return;
@@ -49,8 +51,10 @@ public class GameManager : MonoBehaviour
 
     public void loadCuisineScene() 
     {
-        if(instance.guest.characterName.Equals(""))
+        if(instance.guest == null || instance.guest.characterName.Equals(""))
         {
+            //StartCoroutine(sendNotification("Pick a guest please", 3));
+            errorNotificationController.showNotification("Pick a guest please");
             Debug.Log("Pick a guest please");
         } else
         {
@@ -64,8 +68,9 @@ public class GameManager : MonoBehaviour
         string s = TestRecipe();
         TestPreference(s);
         Debug.Log("Name soup : " + s);
-        if (instance.guest.characterName.Equals(""))
+        if (instance.guest == null || instance.guest.characterName.Equals(""))
         {
+            StartCoroutine(sendNotification("Pick a guest please", 3));
             Debug.Log("Pick a guest please");
         }
         else
@@ -103,5 +108,10 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < character[0].favIngredients.Count; i++)
                 if (isoup == character[0].favIngredients[i])
                     character[0].isFavIngredientsKnown[i] = true;
+    }
+    IEnumerator sendNotification(string text, int time){
+        notificationText.text = text;
+        yield return new WaitForSeconds(time);
+        notificationText.text = "";
     }
 }
