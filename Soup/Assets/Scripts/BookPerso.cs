@@ -64,14 +64,14 @@ public class BookPerso : MonoBehaviour
 
     void Update()
     {
-       //if (next && currentPage < bookPages.Length)           
-        if (Input.GetKeyDown(KeyCode.Z) && currentPage + 1 < bookPages.Length)
+       if (next && currentPage < bookPages.Length)           
+        //if (Input.GetKeyDown(KeyCode.Z) && currentPage + 1 < bookPages.Length)
         {
             next = false;
             UpdateBookRTLToPoint();
         }
-        //if (previous && currentPage > 1)
-        if (Input.GetKeyDown(KeyCode.A) && currentPage > 1)
+        if (previous && currentPage > 1)
+        //if (Input.GetKeyDown(KeyCode.A) && currentPage > 1)
         {
             previous = false;
             UpdateBookLTRToPoint();

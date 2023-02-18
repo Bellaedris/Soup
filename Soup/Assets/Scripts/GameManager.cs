@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     public List<Ingredient> ingredientsSoup;
 
+    public GameObject characterBook;
+    public GameObject recipeBook;
+
     private void Awake() {
         if(instance!=null){
             return;
@@ -103,5 +106,19 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < character[0].favIngredients.Count; i++)
                 if (isoup == character[0].favIngredients[i])
                     character[0].isFavIngredientsKnown[i] = true;
+    }
+
+    public void ToggleCharacterBook()
+    {
+        if (recipeBook.activeSelf)
+            recipeBook.SetActive(false);
+        characterBook.SetActive(!characterBook.activeSelf);
+    }
+
+    public void ToggleRecipeBook()
+    {
+        if (characterBook.activeSelf)
+            characterBook.SetActive(false);
+        recipeBook.SetActive(!recipeBook.activeSelf);
     }
 }
