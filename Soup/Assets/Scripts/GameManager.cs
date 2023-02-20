@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
                 soup.colors.Add(new Color(col.r, col.g, col.b));
             }
 
-            //SceneManager.LoadScene(4);
+            SceneManager.LoadScene(4);
         }
     }
 
