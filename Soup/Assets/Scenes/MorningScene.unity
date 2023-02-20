@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxIngredientInventory: 0
-  guest: {fileID: 0}
+  guest: 
   characterList: []
   character: []
   soups: []
@@ -12489,75 +12489,6 @@ Transform:
   m_Father: {fileID: 1670008698206908564}
   m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3897507039360271778
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 283.78757
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -243.51245
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 244.00525
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453572596583922772, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9086803691724089070, guid: 385159567afa8c742a4a4e1338549566,
-        type: 3}
-      propertyPath: m_Name
-      value: PotatoBits
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 385159567afa8c742a4a4e1338549566, type: 3}
 --- !u!4 &3902960857464103945
 Transform:
   m_ObjectHideFlags: 0
