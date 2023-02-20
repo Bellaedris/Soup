@@ -47,9 +47,7 @@ public class BookPerso : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("Guest : " + GameManager.instance.character);
-        characters = GameManager.instance.character;
-        Debug.Log("name 0 : " + GameManager.instance.character[0].name);
+        characters = GameManager.instance.characterList;
 
         if (!canvas) canvas = GetComponentInParent<Canvas>();
         if (!canvas) Debug.LogError("Book should be a child to canvas");

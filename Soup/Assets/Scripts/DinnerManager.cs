@@ -13,16 +13,16 @@ public class DinnerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.instance.guest.characterName.Equals(""))
+        if (GameManager.instance.guest.Equals(""))
         {
             Debug.Log("Lonely...");
         } else
         {
-            Debug.Log("Guest : " + GameManager.instance.guest.characterName);
-            string guestName = GameManager.instance.guest.characterName;
+            Debug.Log("Guest : " + GameManager.instance.guest);
+            string guestName = GameManager.instance.guest;
             guestPrefab = (GameObject)Resources.Load("prefab/Characters/"+guestName, typeof(GameObject));
-            guestPrefab.transform.localScale = Vector3.one;
-            Instantiate(guestPrefab, new Vector3(-20.2f, 0.5f, -6.2f), Quaternion.identity);
+            guestPrefab.transform.localScale = Vector3.one * 0.09f;
+            Instantiate(guestPrefab, new Vector3(-20.14f, 1.06f, -6.2f), Quaternion.Euler(0f, 90f, 0f));
 
             soup = GameManager.instance.GetComponent<Soup>();
             soupSurface.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor()); 
