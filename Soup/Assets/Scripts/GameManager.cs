@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
             else
                 soup = gameObject.GetComponent<Soup>() as Soup;
             
+            soup.ingredients = new List<Ingredient>();
             soup.nbLegumes = finishedSoup.nbLegumes;
             soup.colors = new List<Color>();
 

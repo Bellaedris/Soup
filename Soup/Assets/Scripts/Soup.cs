@@ -45,7 +45,7 @@ public class Soup : MonoBehaviour
     public Color computeColor()
     {
         float r = 0, g = 0 , b = 0;
-        int sizeIngredients = ingredients.Count;
+        int sizeIngredients = colors.Count;
 
         foreach(Color color in colors)
         {
