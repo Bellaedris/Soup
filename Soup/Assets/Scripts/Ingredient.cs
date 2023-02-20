@@ -24,6 +24,11 @@ public class Ingredient : MonoBehaviour
         //The mouse is no longer hovering over the GameObject so output this message each frame
         gameObject.layer = 0;
     }
+
+    public Ingredient Clone()
+    {
+        return new Ingredient(nom, objet);
+    }
 }
 
 

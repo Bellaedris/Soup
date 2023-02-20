@@ -13,4 +13,17 @@ public class Legume : Ingredient
         this.isMixed = isMixed;
         this.couleur = couleur;
     }
+
+    public Legume(string nom, Mesh objet, bool isMixed, Color couleur, GameObject mixedObject) : base(nom, objet)
+    {
+        this.isMixed = isMixed;
+        this.couleur = couleur;
+        this.mixedObject = mixedObject;
+    }
+
+    // Deep copy
+    public new Legume Clone()
+    {
+        return new Legume(nom, objet, isMixed, couleur, mixedObject);
+    }
 }

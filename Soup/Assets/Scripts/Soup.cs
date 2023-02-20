@@ -6,18 +6,13 @@ using UnityEngine;
 public class Soup : MonoBehaviour
 {
     [SerializeField]
-    private List<Ingredient> ingredients;
-    private int nbLegumes;
-    private List<Color> colors;
+    public List<Ingredient> ingredients;
+    public int nbLegumes;
+    public List<Color> colors;
 
-    void Awake()
+    private void Awake()
     {
-        Debug.Log("Coucou");
-    }
-
-    private void Start()
-    {
-        Debug.Log("Soupe créée");
+        Debug.Log("Soupe crÃ©Ã©e");
         ingredients = new List<Ingredient>();
         nbLegumes = 0;
         colors = new List<Color>();
@@ -28,6 +23,23 @@ public class Soup : MonoBehaviour
         ingredients = new List<Ingredient>();
         nbLegumes = 0;
         colors = new List<Color>();
+    }
+
+    public Soup(List<Ingredient> ingredients, int nbLegumes, List<Color> colors) 
+    {
+        this.ingredients = new List<Ingredient>();
+        this.nbLegumes = nbLegumes;
+        this.colors = new List<Color>();
+
+        foreach(var ing in ingredients)
+        {
+            this.ingredients.Add(ing.Clone());
+        }
+
+        foreach(var col in colors)
+        {
+            this.colors.Add(new Color(col.r, col.g, col.b));
+        }
     }
 
     public Color computeColor()
@@ -70,5 +82,11 @@ public class Soup : MonoBehaviour
     public bool containsIngredient(Ingredient i)
     {
         return ingredients.Contains(i);
+    }
+
+    public Soup Clone()
+    {
+        Debug.Log(ingredients.Count);
+        return new Soup(ingredients, nbLegumes, colors);
     }
 }
