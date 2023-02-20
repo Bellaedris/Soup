@@ -1276,9 +1276,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxIngredientInventory: 0
   guest: 
-  characterList: []
-  character: []
-  soups: []
+  characterList:
+  - {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca, type: 3}
+  - {fileID: 6438152999520021167, guid: 5e1f9845a56188527a8d11a22bcbfb04, type: 3}
+  character:
+  - {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca, type: 3}
+  - {fileID: 6438152999520021167, guid: 5e1f9845a56188527a8d11a22bcbfb04, type: 3}
+  soups:
+  - {fileID: -1649279031902866970, guid: 6de41c717ad2f5f40bce812987087611, type: 3}
+  - {fileID: -5225335091299892435, guid: c6a3ac6b90e20714490545836595248b, type: 3}
+  - {fileID: -1649279031902866970, guid: 5cac24d2fea1a4f4e87ed62106ff8099, type: 3}
   ingredientsSoup: []
   characterBook: {fileID: 0}
   recipeBook: {fileID: 0}

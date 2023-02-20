@@ -92,4 +92,9 @@ public class MarketManager : MonoBehaviour
             }
         }
     }
+
+    public void LoadKitchenScene()
+    {
+        GameManager.instance.loadKitchenScene();
+    }
 }

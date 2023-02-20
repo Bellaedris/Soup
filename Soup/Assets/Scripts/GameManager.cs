@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake() {
         if(instance!=null){
+            Destroy(this);
             return;
         }
         instance = this;
@@ -50,7 +51,7 @@ public class GameManager : MonoBehaviour
         return ingredientInMarket;
     }
 
-    public void loadCuisineScene() 
+    public void loadKitchenScene() 
     {
         if(guest.Equals(""))
         {
