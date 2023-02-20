@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public GameObject character;
+    public string name;
 
     public List<Ingredient> favIngredients;
     public List<bool> isFavIngredientsKnown;
 
+    [Tooltip("Favorite soup recipe")]
     public Soup favSoup;
     public bool IsFavSoupKnown;
 
     public GameObject friend;
+    [Tooltip("Sprite displayed when the character is selected")]
+    public Sprite selectedSprite;
 
     [SerializeField]
     private int affection = 0;

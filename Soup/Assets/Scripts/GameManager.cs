@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int maxIngredientInventory;
-    public Guest guest;
-    public List<Character> characterList;
+    public string guest;
+    public Character[] characterList;
 
     public Character[] character;
     public Soup[] soups;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void loadCuisineScene() 
     {
-        if(instance.guest.characterName.Equals(""))
+        if(guest.Equals(""))
         {
             Debug.Log("Pick a guest please");
         } else
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         string s = TestRecipe();
         TestPreference(s);
         Debug.Log("Name soup : " + s);
-        if (instance.guest.characterName.Equals(""))
+        if (guest.Equals(""))
         {
             Debug.Log("Pick a guest please");
         }
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
                 soup.colors.Add(new Color(col.r, col.g, col.b));
             }
 
-            SceneManager.LoadScene(4);
+            //SceneManager.LoadScene(4);
         }
     }
 

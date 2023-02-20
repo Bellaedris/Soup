@@ -17,19 +17,16 @@ public class MarketManager : MonoBehaviour
     Dictionary<Ingredient, int> ingredient_to_put;
     public List<ItemPrefab> list_prefab;
     public int minimumNumberVegetablesToBuy;
-
     public List<Sprite> listGuest;
     public Image currentGuest;
 
     private void Start() {
-        Debug.Log(" Start() " );
         float instancy = 0;
         //Inventaire_2.Instance.loadFile();
         ingredient_to_put = GameManager.instance.InitMarket();
         minimumNumberVegetablesToBuy =minimumNumberVegetablesToBuy - GameManager.instance.InitNbVegeMarket();
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
         Object ObjectPrefab = Resources.Load("carrotPrefab");
-        //Debug.Log("minimumNumberVegetablestoBuy : " + minimumNumberVegetablesToBuy);
 
         
         foreach (KeyValuePair<Ingredient, int> ingredient in ingredient_to_put)  
@@ -42,7 +39,6 @@ public class MarketManager : MonoBehaviour
                     break;
                 }
             }
-            Debug.Log("je suis l'ingredient : " + ingredient.Key.nom + " nous sommes : " + ingredient.Value);
             instancy = 0;
             while(instancy < ingredient.Value){
                 Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy, 0), Quaternion.identity);
@@ -66,37 +62,34 @@ public class MarketManager : MonoBehaviour
             // if the cursor hits a character, set the guest 
             if(hit.collider.gameObject.GetComponent<Character>() != null)
             {
-                if (GameManager.instance.guest is null)
+                if (GameManager.instance.guest == null) 
                 {
-                    onChangeGuest(hit.collider.gameObject);
+                    onChangeGuest(hit.collider.gameObject.GetComponent<Character>().name);
                 }
-                else if (!GameManager.instance.guest.name.Equals(hit.collider.gameObject.name))
+                else if (!GameManager.instance.guest.Equals(hit.collider.gameObject.name))
                 {
-                    onChangeGuest(hit.collider.gameObject);
-                }               
-                
+                    onChangeGuest(hit.collider.gameObject.GetComponent<Character>().name);
+                }
             }
         }
-
     }
 
     // change the current guest
-    private void onChangeGuest(GameObject newGuest)
+    private void onChangeGuest(string guestName)
     {
-        GameManager.instance.guest.changeGuest(newGuest);
-        changeImage(newGuest.name);
+        GameManager.instance.guest = guestName;
+        changeImage(guestName);
     }
 
     // change the current selected guest visual
     private void changeImage(string guestName)
     {
-        foreach(Sprite sprite in listGuest)
+        foreach(Character ch in GameManager.instance.characterList)
         {
-            if(sprite.name.Equals(guestName))
+            if(ch.name.Equals(guestName))
             {
-                currentGuest.sprite = sprite;
+                currentGuest.sprite = ch.selectedSprite;
             }
         }
-        
     }
 }
