@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -62,9 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void loadDinnerScene(Soup finishedSoup)
     {
-        string s = TestRecipe();
-        TestPreference(s);
-        Debug.Log("Name soup : " + s);
+        
         if (guest.Equals(""))
         {
             Debug.Log("Pick a guest please");
@@ -113,33 +112,56 @@ public class GameManager : MonoBehaviour
 
     public string TestRecipe()
     {
+        Ingredient[] ingredients = this.GetComponents<Ingredient>();
         foreach (Soup s in soups)
         {
             List<Ingredient> ingredientsRecipe = s.GetIngredients().ToList();
-            if (ingredientsSoup.Count == ingredientsRecipe.Count)
+            if (ingredients.Length == ingredientsRecipe.Count)
             {
-                foreach (Ingredient isoup in  ingredientsSoup)
+                foreach (Ingredient isoup in ingredients)
                 {
                     for (int i = 0; i < ingredientsRecipe.Count; i++)
-                        if (isoup.name.Equals(ingredientsRecipe[i].name))
+                        if (isoup.nom.Equals(ingredientsRecipe[i].nom))
                             ingredientsRecipe.RemoveAt(i);
                     if (ingredientsRecipe.Count == 0)
                         return s.name;
                 }
-                
             }
         }
         return "commun";
     }
 
-    public void TestPreference(string soupName)
+    public int TestPreference(string soupName)
     {
-        if (character[0].favSoup.name.Equals(soupName))
-            character[0].IsFavSoupKnown = true;
-        foreach (Ingredient isoup in ingredientsSoup)
-            for (int i = 0; i < character[0].favIngredients.Count; i++)
-                if (isoup == character[0].favIngredients[i])
-                    character[0].isFavIngredientsKnown[i] = true;
+        Ingredient[] ingredients = this.GetComponents<Ingredient>();
+        int result = 1;
+        foreach (Character c in character)
+        {
+            if (guest == c.name)
+            {                
+                foreach (Ingredient isoup in ingredients)
+                {
+                    for (int i = 0; i < c.favIngredients.Count; i++)
+                    {                        
+                        if (isoup.nom.Equals(c.favIngredients[i].nom))
+                        {
+                            c.isFavIngredientsKnown[i] = true;
+                            result = 3;
+                            break;
+                        }                        
+                    }                    
+                }
+                if (c.favSoup.name.Equals(soupName))
+                {
+                    c.IsFavSoupKnown = true;
+                    result = 5;
+                }
+                c.updateAffection(result);                    
+                
+            }
+        }
+        return result;
+
     }
 
     public void ToggleCharacterBook()

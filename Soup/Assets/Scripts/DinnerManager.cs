@@ -25,7 +25,12 @@ public class DinnerManager : MonoBehaviour
             Instantiate(guestPrefab, new Vector3(-20.14f, 1.06f, -6.2f), Quaternion.Euler(0f, 90f, 0f));
 
             soup = GameManager.instance.GetComponent<Soup>();
-            soupSurface.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor()); 
+            soupSurface.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
+
+
+            string s = GameManager.instance.TestRecipe();
+            GameManager.instance.TestPreference(s);
+            Debug.Log("Name soup : " + s);
         }
     }
 
