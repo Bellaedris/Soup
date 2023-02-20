@@ -13,12 +13,9 @@ public class GameManager : MonoBehaviour
     public int maxIngredientInventory;
     public Guest guest;
     public List<Character> characterList;
-
     public Character[] character;
     public Soup[] soups;
-
     public List<Ingredient> ingredientsSoup;
-
     public Text notificationText;
     private void Awake() {
         if(instance!=null){
@@ -51,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void loadCuisineScene() 
     {
+        //StartCoroutine(levelLoader.loadlevel()); 
+        /*
         if(instance.guest == null || instance.guest.characterName.Equals(""))
         {
             //StartCoroutine(sendNotification("Pick a guest please", 3));
@@ -58,9 +57,18 @@ public class GameManager : MonoBehaviour
             Debug.Log("Pick a guest please");
         } else
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(LevelLoader.loadlevel()); 
         }
+        */
+        
     }
+    /*
+    public IEnumerator loada(){
+        Transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(6);
+    }
+*/
 
     public void loadDinnerScene()
     {
