@@ -78,13 +78,16 @@ public class GameManager : MonoBehaviour
             else
                 soup = gameObject.GetComponent<Soup>() as Soup;
             
-            soup.ingredients = new List<Ingredient>();
             soup.nbLegumes = finishedSoup.nbLegumes;
             soup.colors = new List<Color>();
 
+            // quickfix, adds scripts to the gameobject to pass soup data to next scene
+            // for some reason, colors were just fine to add as we did but ingredients couldn't.
+            // this is most likely due to the fact ingredients are monobehaviour.
             foreach(var ing in finishedSoup.ingredients)
             {
-                soup.ingredients.Add(ing.Clone());
+                Ingredient newIng = gameObject.AddComponent<Ingredient>() as Ingredient;
+                newIng.nom = ing.nom;
             }
 
             foreach(var col in finishedSoup.colors)
