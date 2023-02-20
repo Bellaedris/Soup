@@ -57,11 +57,13 @@ public class MarketManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
         RaycastHit hit;
         if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
+            //if the cursor hits an ingredient, add it to the inventory
             if(hit.collider.gameObject.GetComponent<Legume>() != null){
                 Destroy(hit.collider.gameObject.GetComponent<Legume>());
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
             }
+            // if the cursor hits a character, set the guest 
             if(hit.collider.gameObject.GetComponent<Character>() != null)
             {
                 if (GameManager.instance.guest is null)
@@ -75,33 +77,17 @@ public class MarketManager : MonoBehaviour
                 
             }
         }
-/*
-        if(Camera.main.transform.position.z > 0){
-            Debug.Log("left set");
-
-            leftArrow.SetActive(true);
-        }else{
-             Debug.Log("left deset");
-            leftArrow.SetActive(false);
-        }
-        if(Camera.main.transform.position.z < 10){
-             Debug.Log("right set");
-            rightArrow.SetActive(true);
-        }else{
-             Debug.Log("right deset");
-            rightArrow.SetActive(false);
-        }
-        */
 
     }
 
+    // change the current guest
     private void onChangeGuest(GameObject newGuest)
     {
         GameManager.instance.guest.changeGuest(newGuest);
-        //Debug.Log("New guest : " + newGuest.name);
         changeImage(newGuest.name);
     }
 
+    // change the current selected guest visual
     private void changeImage(string guestName)
     {
         foreach(Sprite sprite in listGuest)
