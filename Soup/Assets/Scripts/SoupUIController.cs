@@ -53,6 +53,22 @@ public class SoupUIController : MonoBehaviour
         }
     }
 
+    public void AddMixedBitsToSoup(Ingredient ing)
+    {
+        for (int i = 0; i < Random.Range(1, 4); i++)
+        {
+            Vector3 spawnPos = new Vector3(
+                Random.Range(-.8f, .8f),
+                soupRenderer.transform.localPosition.y + .5f,
+                Random.Range(-.8f, .8f)
+            );
+            Quaternion randomRotation = Quaternion.AngleAxis(Random.Range(0f, 90f), Vector3.left);
+            Instantiate(ing, Vector3.back, randomRotation, soupRenderer.transform).transform.localPosition = spawnPos;
+
+        }
+    }
+
+
     public void RemoveVegFromInv(Legume leg)
     {
         Inventaire inventaire = Inventaire.instance;
@@ -104,6 +120,15 @@ public class SoupUIController : MonoBehaviour
                 newItem.transform.parent = itemSpawner.transform;
             }
         }
+        foreach (KeyValuePair<Ingredient, int> kvp in inventaire.inventaireIngredients)
+        {
+            //Debug.Log(kvp.Key.nom);
+            if (kvp.Value > 0)
+            {
+                GameObject newItem = createIngInventoryItem(itemSpawner.transform, kvp.Value, kvp.Key);
+                newItem.transform.parent = itemSpawner.transform;
+            }
+        }
     }
     public GameObject createLegumeInventoryItem(Transform itemSpawner, int numberOfIngredient, Legume legume)
     {
@@ -131,7 +156,9 @@ public class SoupUIController : MonoBehaviour
         newItem.GetComponent<Ingredient>().objet = ing.objet;
         newItem.GetComponent<DragDrop>().canvas = canvas;
         newItem.transform.GetChild(1).GetComponent<MeshFilter>().mesh = ing.objet;
+        newItem.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial = ing.GetComponent<Renderer>().sharedMaterial;
         newItem.transform.GetChild(2).GetComponent<TMP_Text>().text = "x" + numberOfIngredient;
+
         return newItem;
     }
 

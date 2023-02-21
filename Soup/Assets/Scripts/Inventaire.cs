@@ -26,7 +26,10 @@ public class Inventaire : MonoBehaviour
             if(listInventaireIngredients[i].GetComponent<Legume>()  != null ){
                 inventaireLegumes[listInventaireIngredients[i].GetComponent<Legume>()] = listInventaireIngredientsNumber[i];
             }
-            inventaireIngredients[listInventaireIngredients[i]] = listInventaireIngredientsNumber[i];
+            else
+            {
+                inventaireIngredients[listInventaireIngredients[i]] = listInventaireIngredientsNumber[i];
+            }
         }
     }
 
