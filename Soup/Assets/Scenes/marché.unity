@@ -29159,10 +29159,7 @@ MonoBehaviour:
   characterList: []
   character: []
   soups: []
-  levelLoader: {fileID: 4758449801713743379, guid: d74540502234d1441ae64e5ab25967e1,
-    type: 3}
   ingredientsSoup: []
-  Transition: {fileID: 0}
   notificationText: {fileID: 0}
 --- !u!4 &1725338727
 Transform:

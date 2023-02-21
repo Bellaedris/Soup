@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Soup[] soups;
     public List<Ingredient> ingredientsSoup;
     public Text notificationText;
+    public Animator Transition;
+
     private void Awake() {
         if(instance!=null){
             return;
@@ -47,28 +49,24 @@ public class GameManager : MonoBehaviour
     }
 
     public void loadCuisineScene() 
-    {
-        //StartCoroutine(levelLoader.loadlevel()); 
-        /*
+    {        
         if(instance.guest == null || instance.guest.characterName.Equals(""))
         {
-            //StartCoroutine(sendNotification("Pick a guest please", 3));
             errorNotificationController.showNotification("Pick a guest please");
-            Debug.Log("Pick a guest please");
         } else
-        {
-            StartCoroutine(LevelLoader.loadlevel()); 
+        {   
+            StartCoroutine(loadscene("KitchenUI")); 
         }
-        */
+        
         
     }
-    /*
-    public IEnumerator loada(){
+    
+    public IEnumerator loadscene(string scene){
         Transition.SetTrigger("Start");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(scene);
     }
-*/
+
 
     public void loadDinnerScene()
     {
