@@ -34,7 +34,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             Debug.Log("else");
             updateLayer("UIIngObject", 3);
             dragable.transform.GetChild(1).GetComponent<MeshFilter>().mesh = eventData.pointerDrag.GetComponent<Ingredient>().objet;
-            dragable.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial = eventData.pointerDrag.GetComponent<Renderer>().sharedMaterial;
+            dragable.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial = eventData.pointerDrag.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial;
         }
     }
 

@@ -40,7 +40,7 @@ public class SoupUIController : MonoBehaviour
 
     public void AddMixedBitsToSoup(Legume veg)
     {
-        for (int i = 0; i < Random.Range(1, 4); i++)
+        for (int i = 0; i < Random.Range(2, 4); i++)
         {
             Vector3 spawnPos = new Vector3 (
                 Random.Range(-.8f, .8f),
@@ -55,7 +55,7 @@ public class SoupUIController : MonoBehaviour
 
     public void AddMixedBitsToSoup(Ingredient ing)
     {
-        for (int i = 0; i < Random.Range(1, 4); i++)
+        for (int i = 0; i < Random.Range(2, 4); i++)
         {
             Vector3 spawnPos = new Vector3(
                 Random.Range(-.8f, .8f),
@@ -63,6 +63,8 @@ public class SoupUIController : MonoBehaviour
                 Random.Range(-.8f, .8f)
             );
             Quaternion randomRotation = Quaternion.AngleAxis(Random.Range(0f, 90f), Vector3.left);
+            Debug.Log("soupised");
+
             Instantiate(ing, Vector3.back, randomRotation, soupRenderer.transform).transform.localPosition = spawnPos;
 
         }
