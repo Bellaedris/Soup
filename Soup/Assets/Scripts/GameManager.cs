@@ -5,12 +5,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public ErrorNotificationController errorNotificationController;
 
-    public int maxIngredientInventory;
     public string guest;
     public Character[] characterList;
 
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public List<Ingredient> ingredientsSoup;
     public GameObject characterBook;
     public GameObject recipeBook;
+    public Animator Transition;
 
     private void Awake() {
         if(instance!=null){
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     }
     public Dictionary<Ingredient, int> InitMarket(){
         Dictionary<Ingredient, int> ingredientInMarket = new  Dictionary<Ingredient, int>();
+
         foreach (KeyValuePair<Ingredient, int> ingredient in Inventaire.instance.inventaireIngredients)  
         {  
             ingredientInMarket[ingredient.Key] = Inventaire.instance.maxIngredientInventory - ingredient.Value;
@@ -52,22 +54,29 @@ public class GameManager : MonoBehaviour
     }
 
     public void loadKitchenScene() 
-    {
-        if(guest.Equals(""))
+    {        
+        if(guest == null || guest.Equals(""))
         {
-            Debug.Log("Pick a guest please");
+            errorNotificationController.showNotification("Pick a guest please");
         } else
-        {
-            SceneManager.LoadScene(1);
+        {   
+            StartCoroutine(loadscene("KitchenUI")); 
         }
+        
+        
     }
-
+    
+    public IEnumerator loadscene(string scene){
+        Transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(scene);
+    }
     public void loadDinnerScene(Soup finishedSoup)
     {
         
-        if (guest.Equals(""))
+        if (guest == null || guest.Equals(""))
         {
-            Debug.Log("Pick a guest please");
+            errorNotificationController.showNotification("Pick a guest please");
         }
         else
         {
@@ -95,19 +104,18 @@ public class GameManager : MonoBehaviour
             {
                 soup.colors.Add(new Color(col.r, col.g, col.b));
             }
-
-            SceneManager.LoadScene(4);
+            StartCoroutine(loadscene("Dinner")); 
         }
     }
 
     public void loadMarketScene()
     {
-        SceneManager.LoadScene(2);      
+        StartCoroutine(loadscene("Marché"));      
     }
 
     public void loadMorningScene()
     {
-        SceneManager.LoadScene(6);
+        StartCoroutine(loadscene("MorningScene"));      
     }
 
 
@@ -180,3 +188,18 @@ public class GameManager : MonoBehaviour
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
