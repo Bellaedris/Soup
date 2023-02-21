@@ -5,31 +5,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public ErrorNotificationController errorNotificationController;
+
     public int maxIngredientInventory;
-<<<<<<< HEAD
     public string guest;
     public Character[] characterList;
 
-=======
-    public Guest guest;
-    public List<Character> characterList;
->>>>>>> popup
     public Character[] character;
     public Soup[] soups;
+
     public List<Ingredient> ingredientsSoup;
-<<<<<<< HEAD
     public GameObject characterBook;
     public GameObject recipeBook;
-=======
-    public Text notificationText;
-    public Animator Transition;
->>>>>>> popup
 
     private void Awake() {
         if(instance!=null){
@@ -61,46 +51,22 @@ public class GameManager : MonoBehaviour
         return ingredientInMarket;
     }
 
-<<<<<<< HEAD
     public void loadKitchenScene() 
     {
         if(guest.Equals(""))
-=======
-    public void loadCuisineScene() 
-    {        
-        if(instance.guest == null || instance.guest.characterName.Equals(""))
->>>>>>> popup
         {
-            errorNotificationController.showNotification("Pick a guest please");
+            Debug.Log("Pick a guest please");
         } else
-        {   
-            StartCoroutine(loadscene("KitchenUI")); 
+        {
+            SceneManager.LoadScene(1);
         }
-        
-        
     }
-    
-    public IEnumerator loadscene(string scene){
-        Transition.SetTrigger("Start");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(scene);
-    }
-
 
     public void loadDinnerScene(Soup finishedSoup)
     {
-<<<<<<< HEAD
         
         if (guest.Equals(""))
-=======
-        Debug.Log("loadDinnerScene : "+ ingredientsSoup.Count);
-        string s = TestRecipe();
-        TestPreference(s);
-        Debug.Log("Name soup : " + s);
-        if (instance.guest == null || instance.guest.characterName.Equals(""))
->>>>>>> popup
         {
-            StartCoroutine(sendNotification("Pick a guest please", 3));
             Debug.Log("Pick a guest please");
         }
         else
@@ -198,7 +164,6 @@ public class GameManager : MonoBehaviour
         return result;
 
     }
-<<<<<<< HEAD
 
     public void ToggleCharacterBook()
     {
@@ -214,11 +179,4 @@ public class GameManager : MonoBehaviour
         recipeBook.SetActive(!recipeBook.activeSelf);
     }
 
-=======
-    IEnumerator sendNotification(string text, int time){
-        notificationText.text = text;
-        yield return new WaitForSeconds(time);
-        notificationText.text = "";
-    }
->>>>>>> popup
 }
