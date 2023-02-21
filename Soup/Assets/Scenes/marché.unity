@@ -29477,7 +29477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorNotificationController: {fileID: 1057320937}
-  maxIngredientInventory: 5
   guest: 
   characterList:
   - {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca, type: 3}
@@ -34617,7 +34616,7 @@ MonoBehaviour:
   - {fileID: 7198098997422114639, guid: 03b710fecba3079469918e4f0e416516, type: 3}
   - {fileID: 7198098997422114639, guid: ea7b753eed2cdb341b4b9455828bbc77, type: 3}
   - {fileID: 7198098997422114639, guid: 2b1dc6512b147e9438a66bf5cb3b4061, type: 3}
-  listInventaireIngredientsNumber: 02000000030000000300000001000000
+  listInventaireIngredientsNumber: 02000000010000000100000001000000
   maxIngredientInventory: 5
 --- !u!1 &2004560799
 GameObject:
