@@ -11377,7 +11377,7 @@ GameObject:
   - component: {fileID: 714553411}
   - component: {fileID: 714553410}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15608,14 +15608,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923688949}
-  m_LocalRotation: {x: 0.12918416, y: -0.69520605, z: 0.12918416, w: 0.69520605}
-  m_LocalPosition: {x: 0, y: 5.43, z: 0}
+  m_LocalRotation: {x: 0.15498757, y: -0.6899122, z: 0.15498757, w: 0.6899122}
+  m_LocalPosition: {x: -3.17, y: 3.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 21.053, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.322, y: -90, z: 0}
 --- !u!114 &923688953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29477,7 +29477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorNotificationController: {fileID: 1057320937}
-  maxIngredientInventory: 0
+  maxIngredientInventory: 5
   guest: 
   characterList:
   - {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca, type: 3}
@@ -29487,7 +29487,6 @@ MonoBehaviour:
   ingredientsSoup: []
   characterBook: {fileID: 1666756486}
   recipeBook: {fileID: 289520078}
-  notificationText: {fileID: 0}
   Transition: {fileID: 1364975056}
 --- !u!4 &1725338727
 Transform:
@@ -65421,7 +65420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5213013966896646055}
   m_LocalRotation: {x: -0.14698417, y: -0.41596776, z: -0.89481723, w: 0.06832762}
-  m_LocalPosition: {x: -1.8818848, y: -5.8665376, z: -0.051469743}
+  m_LocalPosition: {x: -2.73, y: -5.8665376, z: -0.051469743}
   m_LocalScale: {x: 0.15733457, y: 0.15733457, z: 0.30209842}
   m_ConstrainProportionsScale: 0
   m_Children:

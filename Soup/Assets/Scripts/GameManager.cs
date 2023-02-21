@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public ErrorNotificationController errorNotificationController;
 
-    public int maxIngredientInventory;
     public string guest;
     public Character[] characterList;
 
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
     public List<Ingredient> ingredientsSoup;
     public GameObject characterBook;
     public GameObject recipeBook;
-    public Text notificationText;
     public Animator Transition;
 
     private void Awake() {
@@ -56,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void loadKitchenScene() 
     {        
-        if(instance.guest == null || instance.guest.Equals(""))
+        if(guest == null || guest.Equals(""))
         {
             errorNotificationController.showNotification("Pick a guest please");
         } else
@@ -75,9 +73,9 @@ public class GameManager : MonoBehaviour
     public void loadDinnerScene(Soup finishedSoup)
     {
         
-        if (guest.Equals(""))
+        if (guest == null || guest.Equals(""))
         {
-            Debug.Log("Pick a guest please");
+            errorNotificationController.showNotification("Pick a guest please");
         }
         else
         {
@@ -105,19 +103,18 @@ public class GameManager : MonoBehaviour
             {
                 soup.colors.Add(new Color(col.r, col.g, col.b));
             }
-
-            SceneManager.LoadScene(4);
+            StartCoroutine(loadscene("Dinner")); 
         }
     }
 
     public void loadMarketScene()
     {
-        SceneManager.LoadScene(2);      
+        StartCoroutine(loadscene("Marché"));      
     }
 
     public void loadMorningScene()
     {
-        SceneManager.LoadScene(6);
+        StartCoroutine(loadscene("MorningScene"));      
     }
 
 
@@ -189,11 +186,6 @@ public class GameManager : MonoBehaviour
         recipeBook.SetActive(!recipeBook.activeSelf);
     }
 
-    IEnumerator sendNotification(string text, int time){
-        notificationText.text = text;
-        yield return new WaitForSeconds(time);
-        notificationText.text = "";
-    }
 }
 
 

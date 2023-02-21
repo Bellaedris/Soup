@@ -28,7 +28,7 @@ public class MarketManager : MonoBehaviour
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
         Object ObjectPrefab = Resources.Load("carrotPrefab");
 
-        
+        Debug.Log("ingredient_to_put : " + ingredient_to_put.Count);
         foreach (KeyValuePair<Ingredient, int> ingredient in ingredient_to_put)  
         {  
             foreach (ItemPrefab item in list_prefab)
