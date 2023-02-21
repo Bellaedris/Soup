@@ -47,3 +47,6 @@ MonoBehaviour:
   ingredients:
   - {fileID: 3514065782988179495, guid: 0994015d4cbd89740900dff3c4c21cb7, type: 3}
   - {fileID: 3514065782988179495, guid: 0994015d4cbd89740900dff3c4c21cb7, type: 3}
+  - {fileID: 3514065782988179495, guid: 0994015d4cbd89740900dff3c4c21cb7, type: 3}
+  nbLegumes: 0
+  colors: []

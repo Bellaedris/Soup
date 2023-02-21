@@ -16,13 +16,10 @@ public class Ingredient : MonoBehaviour
     private void OnMouseOver() {
         gameObject.layer = 7;
     }
-    private void OnMouseEnter() {
-        gameObject.layer = 0;
-    }
     void OnMouseExit()
     {
         //The mouse is no longer hovering over the GameObject so output this message each frame
-        gameObject.layer = 0;
+        gameObject.layer = 3;
     }
 
     public Ingredient Clone()
