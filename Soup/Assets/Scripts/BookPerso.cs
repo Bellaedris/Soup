@@ -62,14 +62,14 @@ public class BookPerso : MonoBehaviour
 
     void Update()
     {
-       if (next && currentPage < bookPages.Length)           
-        //if (Input.GetKeyDown(KeyCode.Z) && currentPage + 1 < bookPages.Length)
+       //if (next && currentPage < bookPages.Length)           
+        if (Input.GetKeyDown(KeyCode.Z) && currentPage + 1 < bookPages.Length)
         {
             next = false;
             UpdateBookRTLToPoint();
         }
-        if (previous && currentPage > 1)
-        //if (Input.GetKeyDown(KeyCode.A) && currentPage > 1)
+        //if (previous && currentPage > 1)
+        if (Input.GetKeyDown(KeyCode.A) && currentPage > 1)
         {
             previous = false;
             UpdateBookLTRToPoint();
@@ -96,6 +96,11 @@ public class BookPerso : MonoBehaviour
                     LCache[i].enabled = true;
             }
             Left.sprite = bookPages[currentPage - 1];
+
+            if (characters[currentPage - 1].getAffection() >= 10)
+                RCache[3].enabled = true;
+            else
+                RCache[3].enabled = false;
             // Display the soup you like best that you know
             if (characters[currentPage - 1].IsFavSoupKnown) // For Right page
                 RCache[2].enabled = false;
@@ -106,6 +111,11 @@ public class BookPerso : MonoBehaviour
                 LCache[2].enabled = false;
             else
                 LCache[2].enabled = true;
+
+            if (characters[currentPage - 2].getAffection() >= 10)
+                LCache[3].enabled = true;
+            else
+                LCache[3].enabled = false;
         }
         else // If we are on the cover
         {
@@ -132,6 +142,11 @@ public class BookPerso : MonoBehaviour
                 else
                     RCache[i].enabled = true;
             }
+            if (characters[currentPage - 1].getAffection() >= 10)
+                RCache[3].enabled = true;
+            else
+                RCache[3].enabled = false;
+
             // Display the soup you like best that you know Right
             if (characters[currentPage - 1].IsFavSoupKnown)
                 RCache[2].enabled = false;
@@ -157,6 +172,10 @@ public class BookPerso : MonoBehaviour
             else
                 LCache[i].enabled = true;
         }
+        if (characters[currentPage - 2].getAffection() <= 10)
+            LCache[3].enabled = true;
+        else
+            LCache[3].enabled = false;
         // Display the soup you like best that you know Left
         if (characters[currentPage - 2].IsFavSoupKnown)
             LCache[2].enabled = false;
