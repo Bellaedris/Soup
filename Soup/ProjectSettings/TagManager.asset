@@ -16,6 +16,7 @@ TagManager:
   - RightArrow
   - UILegumeObject
   - Character
+  - UIIngObject
   layers:
   - Default
   - TransparentFX

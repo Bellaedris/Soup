@@ -28,7 +28,6 @@ public class MarketManager : MonoBehaviour
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
         Object ObjectPrefab = Resources.Load("carrotPrefab");
 
-        
         foreach (KeyValuePair<Ingredient, int> ingredient in ingredient_to_put)  
         {  
             foreach (ItemPrefab item in list_prefab)
@@ -55,6 +54,7 @@ public class MarketManager : MonoBehaviour
         if(Input.GetMouseButtonUp(0) && Physics.Raycast(ray, out hit, Mathf.Infinity)){
             //if the cursor hits an ingredient, add it to the inventory
             if(hit.collider.gameObject.GetComponent<Legume>() != null){
+                hit.collider.gameObject.layer = 3;
                 Destroy(hit.collider.gameObject.GetComponent<Legume>());
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
@@ -91,5 +91,10 @@ public class MarketManager : MonoBehaviour
                 currentGuest.sprite = ch.selectedSprite;
             }
         }
+    }
+
+    public void LoadKitchenScene()
+    {
+        GameManager.instance.loadKitchenScene();
     }
 }

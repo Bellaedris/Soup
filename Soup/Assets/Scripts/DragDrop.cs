@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,10 +23,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
         dragable = Instantiate(dragableObject, transform);
-        dragable.transform.GetChild(1).GetComponent<MeshFilter>().mesh = eventData.pointerDrag.GetComponent<Legume>().objet;
         if (eventData.pointerDrag.GetComponent<Legume>() != null)
         {
             updateLayer("UILegumeObject", 3);
+            dragable.transform.GetChild(1).GetComponent<MeshFilter>().mesh = eventData.pointerDrag.GetComponent<Legume>().objet;
+
+        }
+        else
+        {
+            Debug.Log("else");
+            updateLayer("UIIngObject", 3);
+            dragable.transform.GetChild(1).GetComponent<MeshFilter>().mesh = eventData.pointerDrag.GetComponent<Ingredient>().objet;
+            dragable.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial = eventData.pointerDrag.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial;
         }
     }
 
@@ -32,6 +42,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         Debug.Log("Feur");
         updateLayer("UILegumeObject", 0);
+        updateLayer("UIIngObject", 0);
 
         GameObject.Destroy(dragable);
         canvasGroup.alpha = 1f;

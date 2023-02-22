@@ -16,7 +16,6 @@ public class MixSlot : MonoBehaviour, IDropHandler
         Debug.Log(eventData.pointerDrag.name);
         if(eventData.pointerDrag != null)
         {
-            Debug.Log("Mix " + eventData.pointerDrag.GetComponent<Legume>().nom);
             Legume incomingLegume = eventData.pointerDrag.GetComponent<Legume>();
 
             SoupUIController soupUI = FindObjectOfType<SoupUIController>();
