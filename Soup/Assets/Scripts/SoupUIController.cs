@@ -63,7 +63,6 @@ public class SoupUIController : MonoBehaviour
                 Random.Range(-.8f, .8f)
             );
             Quaternion randomRotation = Quaternion.AngleAxis(Random.Range(0f, 90f), Vector3.left);
-            Debug.Log("soupised");
 
             Instantiate(ing, Vector3.back, randomRotation, soupRenderer.transform).transform.localPosition = spawnPos;
 

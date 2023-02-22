@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
     public int TestPreference(string soupName)
     {
         Ingredient[] ingredients = this.GetComponents<Ingredient>();
+
         int result = 1;
         foreach (Character c in character)
         {
@@ -165,12 +166,11 @@ public class GameManager : MonoBehaviour
                     c.IsFavSoupKnown = true;
                     result = 5;
                 }
-                c.updateAffection(result);                    
-                
+                c.updateAffection(result);
             }
+            
         }
         return result;
-
     }
 
     public void ToggleCharacterBook()

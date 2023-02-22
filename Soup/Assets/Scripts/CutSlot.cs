@@ -16,7 +16,6 @@ public class CutSlot : MonoBehaviour, IDropHandler
         
         if(eventData.pointerDrag != null)
         {
-            Debug.Log("Je coupe " + eventData.pointerDrag.GetComponent<Legume>().nom);
             Legume incomingLegume = eventData.pointerDrag.GetComponent<Legume>();
             SoupUIController soupUI = FindObjectOfType<SoupUIController>();
             soupUI.AddMixedBitsToSoup(incomingLegume);

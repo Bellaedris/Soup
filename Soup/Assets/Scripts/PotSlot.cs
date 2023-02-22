@@ -12,25 +12,28 @@ public class PotSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log(eventData.pointerDrag.name);
-        if(eventData.pointerDrag != null)
+        if (eventData.pointerDrag.GetComponent<Legume>() == null)
         {
-            Debug.Log("Soupise " + eventData.pointerDrag.GetComponent<Ingredient>().nom);
-            Ingredient incomingIng = eventData.pointerDrag.GetComponent<Ingredient>();
-
-            SoupUIController soupUI = FindObjectOfType<SoupUIController>();
-            soupUI.AddIngToSoup(incomingIng);
-            soupUI.AddMixedBitsToSoup(incomingIng);
-            Inventaire inventaire = Inventaire.instance;
-
-            foreach (KeyValuePair<Ingredient, int> kvp in inventaire.inventaireIngredients)
+            if (eventData.pointerDrag != null)
             {
-                //Debug.Log(kvp.Key.nom);
-                if (kvp.Key.nom == incomingIng.nom)
+                Debug.Log("Soupise " + eventData.pointerDrag.GetComponent<Ingredient>().nom);
+                Ingredient incomingIng = eventData.pointerDrag.GetComponent<Ingredient>();
+
+                SoupUIController soupUI = FindObjectOfType<SoupUIController>();
+                soupUI.AddIngToSoup(incomingIng);
+                soupUI.AddMixedBitsToSoup(incomingIng);
+                Inventaire inventaire = Inventaire.instance;
+
+                foreach (KeyValuePair<Ingredient, int> kvp in inventaire.inventaireIngredients)
                 {
-                    soupUI.RemoveIngFromInv(kvp.Key);
-                    DragDrop.updateLayer("UIIngObject", 0);
+                    //Debug.Log(kvp.Key.nom);
+                    if (kvp.Key.nom == incomingIng.nom)
+                    {
+                        soupUI.RemoveIngFromInv(kvp.Key);
+                        DragDrop.updateLayer("UIIngObject", 0);
+                    }
                 }
             }
-        }
+        } 
     }
 }
