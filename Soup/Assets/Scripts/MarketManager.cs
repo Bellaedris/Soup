@@ -43,7 +43,7 @@ public class MarketManager : MonoBehaviour
             instancy = 0;
             while(instancy < ingredient.Value){
                 //ObjectPrefab.transform.localScale -= new Vector3(2f,2f,2f);
-                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy, 0) , Quaternion.identity);
+                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(-0.1f * instancy, instancy, 0) , Quaternion.identity);
                 instancy++;
             }
         } 
