@@ -19,14 +19,16 @@ public class MarketManager : MonoBehaviour
     public int minimumNumberVegetablesToBuy;
     public List<Sprite> listGuest;
     public Image currentGuest;
+    public ErrorNotificationController errorNotificationController;
+
 
     private void Start() {
         float instancy = 0;
         //Inventaire_2.Instance.loadFile();
         ingredient_to_put = GameManager.instance.InitMarket();
-        minimumNumberVegetablesToBuy =minimumNumberVegetablesToBuy - GameManager.instance.InitNbVegeMarket();
+        minimumNumberVegetablesToBuy = minimumNumberVegetablesToBuy - GameManager.instance.InitNbVegeMarket();
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
-        Object ObjectPrefab = Resources.Load("carrotPrefab");
+        GameObject ObjectPrefab = Resources.Load<GameObject>("carrotPrefab");
 
         foreach (KeyValuePair<Ingredient, int> ingredient in ingredient_to_put)  
         {  
@@ -40,12 +42,12 @@ public class MarketManager : MonoBehaviour
             }
             instancy = 0;
             while(instancy < ingredient.Value){
-                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy, 0), Quaternion.identity);
+                //ObjectPrefab.transform.localScale -= new Vector3(2f,2f,2f);
+                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy, 0) , Quaternion.identity);
                 instancy++;
             }
         } 
     }
-    
 
     private void Update() {
 
@@ -55,6 +57,8 @@ public class MarketManager : MonoBehaviour
             //if the cursor hits an ingredient, add it to the inventory
             if(hit.collider.gameObject.GetComponent<Legume>() != null){
                 hit.collider.gameObject.layer = 3;
+                minimumNumberVegetablesToBuy--;
+
                 Destroy(hit.collider.gameObject.GetComponent<Legume>());
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
@@ -93,8 +97,15 @@ public class MarketManager : MonoBehaviour
         }
     }
 
-    public void LoadKitchenScene()
-    {
-        GameManager.instance.loadKitchenScene();
+    public void loadKitchen(){
+        if(this.minimumNumberVegetablesToBuy<=0){
+            GameManager.instance.loadKitchenScene();
+        }
+        else{
+            errorNotificationController.showNotification("you must buy at least " + minimumNumberVegetablesToBuy + " more vegetables to leave the market");
+        }
     }
+
+
 }
+
