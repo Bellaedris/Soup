@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028386, g: 0.22571427, b: 0.3069231, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4696,6 +4696,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: "L\xE9on"
       objectReference: {fileID: 0}
+    - target: {fileID: 6438152999520021167, guid: 981ca66dfca417a188218224655f5632,
+        type: 3}
+      propertyPath: selectedSprite
+      value: 
+      objectReference: {fileID: 554867104, guid: bc2622928831bae598b66134060802d7,
+        type: 3}
+    - target: {fileID: 6438152999520021167, guid: 981ca66dfca417a188218224655f5632,
+        type: 3}
+      propertyPath: emotionSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6438152999520021167, guid: 981ca66dfca417a188218224655f5632,
+        type: 3}
+      propertyPath: emotionSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 216930803, guid: ad0a0791f213af13fbe4307a5f1da216,
+        type: 3}
+    - target: {fileID: 6438152999520021167, guid: 981ca66dfca417a188218224655f5632,
+        type: 3}
+      propertyPath: emotionSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1515291643, guid: ad0a0791f213af13fbe4307a5f1da216,
+        type: 3}
+    - target: {fileID: 6438152999520021167, guid: 981ca66dfca417a188218224655f5632,
+        type: 3}
+      propertyPath: emotionSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1046169442, guid: ad0a0791f213af13fbe4307a5f1da216,
+        type: 3}
     - target: {fileID: 6438152999520021171, guid: 981ca66dfca417a188218224655f5632,
         type: 3}
       propertyPath: m_RootOrder
@@ -14522,7 +14551,7 @@ RectTransform:
   m_GameObject: {fileID: 852750590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 714553413}
@@ -14530,7 +14559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -20, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &852750592
@@ -14553,9 +14582,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5755870adf3cf321bb1f5e647309a1d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0299c3985a0ad3544a1622993734d8e8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -32650,6 +32679,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca,
+        type: 3}
+      propertyPath: selectedSprite
+      value: 
+      objectReference: {fileID: -969669911, guid: 54c6fb35de2e9e8378becfaf0ebe7518,
+        type: 3}
+    - target: {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca,
+        type: 3}
+      propertyPath: emotionSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca,
+        type: 3}
+      propertyPath: emotionSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 688945157, guid: cd7d860df453536f887edc3f0b25d96e,
+        type: 3}
+    - target: {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca,
+        type: 3}
+      propertyPath: emotionSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -1542463264, guid: cd7d860df453536f887edc3f0b25d96e,
+        type: 3}
+    - target: {fileID: 1036608965407405921, guid: 3d93f1d62438b8e4c925b47b503294ca,
+        type: 3}
+      propertyPath: emotionSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 2038660435, guid: cd7d860df453536f887edc3f0b25d96e,
+        type: 3}
     - target: {fileID: 3592785440188928950, guid: 3d93f1d62438b8e4c925b47b503294ca,
         type: 3}
       propertyPath: m_RootOrder
@@ -34901,11 +34959,11 @@ RectTransform:
   m_Father: {fileID: 714553413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -20}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -20, y: 100}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &2020621571
 MonoBehaviour:
   m_ObjectHideFlags: 0

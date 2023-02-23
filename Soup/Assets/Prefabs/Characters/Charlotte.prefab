@@ -55,7 +55,11 @@ MonoBehaviour:
     type: 3}
   IsFavSoupKnown: 1
   friend: {fileID: 0}
-  selectedSprite: {fileID: 21300000, guid: fa0a14840f7fa45efb649be9da5d975e, type: 3}
+  emotionSprites:
+  - {fileID: 688945157, guid: cd7d860df453536f887edc3f0b25d96e, type: 3}
+  - {fileID: -1542463264, guid: cd7d860df453536f887edc3f0b25d96e, type: 3}
+  - {fileID: 2038660435, guid: cd7d860df453536f887edc3f0b25d96e, type: 3}
+  selectedSprite: {fileID: 832712663, guid: 54c6fb35de2e9e8378becfaf0ebe7518, type: 3}
   affection: 0
 --- !u!212 &6431264729537603968
 SpriteRenderer:
