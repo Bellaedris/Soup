@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1707541659425166041}
   - component: {fileID: 3612180476238344658}
   - component: {fileID: 7638376791095153611}
-  - component: {fileID: 7454119908876722081}
+  - component: {fileID: 572194574467972691}
   m_Layer: 3
   m_Name: carrotPrefab
   m_TagString: Untagged
@@ -119,7 +119,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &7454119908876722081
+--- !u!64 &572194574467972691
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,4 +132,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -7387706064836869012, guid: f4a5b60605586124bafa55c12d656bb0, type: 3}
+  m_Mesh: {fileID: 2534964839176971238, guid: a397a2fb343f5bf4f9958105cd4b219f, type: 3}
