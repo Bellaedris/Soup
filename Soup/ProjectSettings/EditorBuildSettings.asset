@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MorningScene.unity
     guid: bbcce238273fff140b421d6f495dae9d
+  - enabled: 1
+    path: Assets/Scenes/MorningSceneWakyWaky.unity
+    guid: be13cfc924901354fb394a19f85f9c10
   m_configObjects: {}

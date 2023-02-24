@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     public void loadMorningScene()
     {
-        StartCoroutine(LoadScene("MorningScene"));      
+        StartCoroutine(LoadScene("MorningSceneWakyWaky"));      
     }
 
 

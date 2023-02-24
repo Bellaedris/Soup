@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Inventaire : MonoBehaviour
@@ -25,7 +26,6 @@ public class Inventaire : MonoBehaviour
         for(int i =0; i< listInventaireIngredients.Count ; i++){
             if(listInventaireIngredients[i].GetComponent<Legume>()  != null ){
                 inventaireLegumes[listInventaireIngredients[i].GetComponent<Legume>()] = listInventaireIngredientsNumber[i];
-                inventaireIngredients[listInventaireIngredients[i]] = listInventaireIngredientsNumber[i];
 
             }
             else
@@ -65,5 +65,15 @@ public class Inventaire : MonoBehaviour
                 return;
             }
         }   
+    }
+
+    public int nbLegumeInInventory()
+    {
+        int counter = 0;
+        foreach(int nb in listInventaireIngredientsNumber)
+        {
+            counter += nb;
+        }
+        return counter;
     }
 }
