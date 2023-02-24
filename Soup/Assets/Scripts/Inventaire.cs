@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class Inventaire : MonoBehaviour
@@ -62,5 +63,15 @@ public class Inventaire : MonoBehaviour
                 return;
             }
         }   
+    }
+
+    public int nbLegumeInInventory()
+    {
+        int counter = 0;
+        foreach(int nb in listInventaireIngredientsNumber)
+        {
+            counter += nb;
+        }
+        return counter;
     }
 }

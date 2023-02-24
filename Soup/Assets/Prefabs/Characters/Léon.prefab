@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6438152999520021166}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,16 +50,16 @@ MonoBehaviour:
   favIngredients:
   - {fileID: 3514065782988179495, guid: 0994015d4cbd89740900dff3c4c21cb7, type: 3}
   - {fileID: 7198098997422114639, guid: bad8e268c1baa804e8bc30ccd7ed46bb, type: 3}
-  isFavIngredientsKnown: 0001
+  isFavIngredientsKnown: 0000
   favSoup: {fileID: -5225335091299892435, guid: c6a3ac6b90e20714490545836595248b,
     type: 3}
-  IsFavSoupKnown: 0
+  IsFavSoupKnown: 1
   friend: {fileID: 0}
   emotionSprites:
   - {fileID: 216930803, guid: ad0a0791f213af13fbe4307a5f1da216, type: 3}
   - {fileID: 1515291643, guid: ad0a0791f213af13fbe4307a5f1da216, type: 3}
   - {fileID: -1046169442, guid: ad0a0791f213af13fbe4307a5f1da216, type: 3}
-  selectedSprite: {fileID: 554867104, guid: bc2622928831bae598b66134060802d7, type: 3}
+  selectedSprite: {fileID: 1515291643, guid: ad0a0791f213af13fbe4307a5f1da216, type: 3}
   affection: 0
 --- !u!212 &8292157254248858312
 SpriteRenderer:

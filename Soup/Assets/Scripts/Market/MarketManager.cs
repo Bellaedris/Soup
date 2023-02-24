@@ -97,13 +97,14 @@ public class MarketManager : MonoBehaviour
     }
 
     public void loadKitchen(){
-        if(this.minimumNumberVegetablesToBuy <= 0 && GameManager.instance.guest != "") {
+        Inventaire.instance.nbLegumeInInventory();
+        if (Inventaire.instance.nbLegumeInInventory() >= 3 && GameManager.instance.guest != "") {
             GameManager.instance.loadKitchenScene();
         }
         else{
             Debug.Log("show notif");
             if (this.minimumNumberVegetablesToBuy > 0)
-                errorNotificationController.showNotification("you must buy at least " + minimumNumberVegetablesToBuy + " more vegetables to leave the market");
+                errorNotificationController.showNotification("you must have at least " + minimumNumberVegetablesToBuy + " vegetables in your inventory to leave the market");
             if (GameManager.instance.guest == "")
                 errorNotificationController.showNotification("Pick a guest please");
         }
