@@ -17,6 +17,7 @@ TagManager:
   - UILegumeObject
   - Character
   - UIIngObject
+  - Bowl
   layers:
   - Default
   - TransparentFX
