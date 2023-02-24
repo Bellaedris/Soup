@@ -17,22 +17,11 @@ public class Character : MonoBehaviour
 
     public GameObject friend;
     [Tooltip("Sprite displayed when the character is selected")]
+    public Sprite[] emotionSprites;
     public Sprite selectedSprite;
 
     [SerializeField]
     private int affection = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void updateAffection(int i)
     {
@@ -42,5 +31,14 @@ public class Character : MonoBehaviour
     public int getAffection()
     {
         return affection;
+    }
+
+    private void OnMouseOver() {
+        GetComponent<SpriteRenderer>().sprite = emotionSprites[1];
+    }
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        GetComponent<SpriteRenderer>().sprite = emotionSprites[0];
     }
 }
