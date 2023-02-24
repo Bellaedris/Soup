@@ -47,7 +47,6 @@ public class Inventaire : MonoBehaviour
         {  
             if(ingredient.Key.nom == legume.nom){
                 inventaireLegumes[ingredient.Key] ++;
-                inventaireIngredients[ingredient.Key]++;
                 return;
             }
         } 

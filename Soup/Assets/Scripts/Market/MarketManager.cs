@@ -24,11 +24,7 @@ public class MarketManager : MonoBehaviour
 
     private void Start() {
         errorNotificationController = GameObject.FindObjectOfType<ErrorNotificationController>();
-
-        
-
         float instancy = 0;
-        //Inventaire_2.Instance.loadFile();
         ingredient_to_put = GameManager.instance.InitMarket();
         minimumNumberVegetablesToBuy = minimumNumberVegetablesToBuy - GameManager.instance.InitNbVegeMarket();
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
@@ -46,7 +42,6 @@ public class MarketManager : MonoBehaviour
             }
             instancy = 0;
             while(instancy < ingredient.Value){
-                //ObjectPrefab.transform.localScale -= new Vector3(2f,2f,2f);
                 Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(-0.1f * instancy, instancy, 0) , Quaternion.identity);
                 instancy++;
             }
