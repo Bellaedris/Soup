@@ -26,7 +26,6 @@ public class MarketManager : MonoBehaviour
         errorNotificationController = GameObject.FindObjectOfType<ErrorNotificationController>();
         float instancy = 0;
         ingredient_to_put = GameManager.instance.InitMarket();
-        minimumNumberVegetablesToBuy = minimumNumberVegetablesToBuy - GameManager.instance.InitNbVegeMarket();
         GameObject PosObject = GameObject.FindWithTag("PosCarrots");
         GameObject ObjectPrefab = Resources.Load<GameObject>("carrotPrefab");
 
