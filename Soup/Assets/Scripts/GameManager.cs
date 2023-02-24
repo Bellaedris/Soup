@@ -32,16 +32,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public int InitNbVegeMarket(){
-        int nbVegetables = 0;
-        foreach (KeyValuePair<Ingredient, int> ingredient in Inventaire.instance.inventaireIngredients)  
-        {  
-            if(ingredient.Key.GetComponent<Legume>() != null){
-                nbVegetables += ingredient.Value;
-            }
-        } 
-        return nbVegetables;
-    }
     public Dictionary<Ingredient, int> InitMarket(){
         Dictionary<Ingredient, int> ingredientInMarket = new  Dictionary<Ingredient, int>();
 
