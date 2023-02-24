@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     public Soup[] soups;
 
     public List<Ingredient> ingredientsSoup;
-    public GameObject characterBook;
-    public GameObject recipeBook;
     public Animator Transition;
 
     private void Awake() {
@@ -55,21 +53,15 @@ public class GameManager : MonoBehaviour
 
     public void loadKitchenScene() 
     {        
-        if(guest == null || guest.Equals(""))
-        {
-            errorNotificationController.showNotification("Pick a guest please");
-        } else
-        {   
-            StartCoroutine(loadscene("KitchenUI")); 
-        }
-        
-        
+        StartCoroutine(LoadScene("KitchenUI"));        
     }
     
-    public IEnumerator loadscene(string scene){
-        Transition.SetTrigger("Start");
+    public IEnumerator LoadScene(string scene){
+        Transition.SetTrigger("Fade in");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(scene);
+        Transition.SetTrigger("Fade out");
+        yield return new WaitForSeconds(1f);
     }
     public void loadDinnerScene(Soup finishedSoup)
     {
@@ -104,18 +96,18 @@ public class GameManager : MonoBehaviour
             {
                 soup.colors.Add(new Color(col.r, col.g, col.b));
             }
-            StartCoroutine(loadscene("Dinner")); 
+            StartCoroutine(LoadScene("Dinner")); 
         }
     }
 
     public void loadMarketScene()
     {
-        StartCoroutine(loadscene("Marché"));      
+        StartCoroutine(LoadScene("Marché"));      
     }
 
     public void loadMorningScene()
     {
-        StartCoroutine(loadscene("MorningScene"));      
+        StartCoroutine(LoadScene("MorningScene"));      
     }
 
 
@@ -171,20 +163,6 @@ public class GameManager : MonoBehaviour
             
         }
         return result;
-    }
-
-    public void ToggleCharacterBook()
-    {
-        if (recipeBook.activeSelf)
-            recipeBook.SetActive(false);
-        characterBook.SetActive(!characterBook.activeSelf);
-    }
-
-    public void ToggleRecipeBook()
-    {
-        if (characterBook.activeSelf)
-            characterBook.SetActive(false);
-        recipeBook.SetActive(!recipeBook.activeSelf);
     }
 
 }
