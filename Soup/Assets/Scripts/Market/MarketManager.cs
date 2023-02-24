@@ -19,10 +19,14 @@ public class MarketManager : MonoBehaviour
     public int minimumNumberVegetablesToBuy;
     public List<Sprite> listGuest;
     public Image currentGuest;
-    public ErrorNotificationController errorNotificationController;
+    private ErrorNotificationController errorNotificationController;
 
 
     private void Start() {
+        errorNotificationController = GameObject.FindObjectOfType<ErrorNotificationController>();
+
+        
+
         float instancy = 0;
         //Inventaire_2.Instance.loadFile();
         ingredient_to_put = GameManager.instance.InitMarket();
@@ -98,11 +102,15 @@ public class MarketManager : MonoBehaviour
     }
 
     public void loadKitchen(){
-        if(this.minimumNumberVegetablesToBuy<=0){
+        if(this.minimumNumberVegetablesToBuy <= 0 && GameManager.instance.guest != "") {
             GameManager.instance.loadKitchenScene();
         }
         else{
-            errorNotificationController.showNotification("you must buy at least " + minimumNumberVegetablesToBuy + " more vegetables to leave the market");
+            Debug.Log("show notif");
+            if (this.minimumNumberVegetablesToBuy > 0)
+                errorNotificationController.showNotification("you must buy at least " + minimumNumberVegetablesToBuy + " more vegetables to leave the market");
+            if (GameManager.instance.guest == "")
+                errorNotificationController.showNotification("Pick a guest please");
         }
     }
 
