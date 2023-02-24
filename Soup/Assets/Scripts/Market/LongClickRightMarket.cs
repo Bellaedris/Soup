@@ -15,18 +15,15 @@ public class LongClickRightMarket : MonoBehaviour,  IPointerDownHandler, IPointe
 
     private void Start() {
         if(Camera.main.transform.position.z > 9.5){
-            Debug.Log("right deset");
             this.gameObject.SetActive(false);
         }
     }
     private void Update() {
 
         if(pressing && Camera.main.transform.position.z < 10.5){
-            Debug.Log("right");
             Camera.main.transform.Translate(Vector3.right * (Time.deltaTime*2));
         }
         if(Camera.main.transform.position.z > 0){
-            Debug.Log("left set");
             leftArrow.SetActive(true);
         }
     }
@@ -38,11 +35,9 @@ public class LongClickRightMarket : MonoBehaviour,  IPointerDownHandler, IPointe
     public void OnPointerDown (PointerEventData eventData)
     {
         if(Camera.main.transform.position.z > 10){
-            Debug.Log("right deset");
             this.gameObject.SetActive(false);
         }
         if(Camera.main.transform.position.z > 0){
-            Debug.Log("left set");
             leftArrow.SetActive(true);
         }
 
@@ -53,11 +48,9 @@ public class LongClickRightMarket : MonoBehaviour,  IPointerDownHandler, IPointe
     public void OnPointerUp (PointerEventData eventData)
     {
         if(Camera.main.transform.position.z > 10){
-            Debug.Log("right deset");
             this.gameObject.SetActive(false);
         }
         if(Camera.main.transform.position.z > 0){
-            Debug.Log("left set");
             leftArrow.SetActive(true);
         }
         pressing = false;

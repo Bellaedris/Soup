@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements.Experimental;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -42,6 +44,11 @@ public class GameManager : MonoBehaviour
     }
     public Dictionary<Ingredient, int> InitMarket(){
         Dictionary<Ingredient, int> ingredientInMarket = new  Dictionary<Ingredient, int>();
+
+        foreach (KeyValuePair<Legume, int> legume in Inventaire.instance.inventaireLegumes)  
+        {  
+            ingredientInMarket[legume.Key] = Inventaire.instance.maxIngredientInventory - legume.Value;
+        } 
 
         foreach (KeyValuePair<Ingredient, int> ingredient in Inventaire.instance.inventaireIngredients)  
         {  
@@ -132,11 +139,10 @@ public class GameManager : MonoBehaviour
         return "commun";
     }
 
-    public int TestPreference(string soupName)
+    public Sprite TestPreference(string soupName)
     {
         Ingredient[] ingredients = this.GetComponents<Ingredient>();
 
-        int result = 1;
         foreach (Character c in character)
         {
             if (guest == c.name)
@@ -144,25 +150,37 @@ public class GameManager : MonoBehaviour
                 foreach (Ingredient isoup in ingredients)
                 {
                     for (int i = 0; i < c.favIngredients.Count; i++)
-                    {                        
+                    {
+                        if (c.favSoup.name.Equals(soupName))
+                        {
+                            c.IsFavSoupKnown = true;
+                            Debug.Log("affection + 5");
+                            c.updateAffection(5);
+                            return c.emotionSprites[2];
+                        }
                         if (isoup.nom.Equals(c.favIngredients[i].nom))
                         {
                             c.isFavIngredientsKnown[i] = true;
-                            result = 3;
-                            break;
+                            Debug.Log("affection + 3");
+                            c.updateAffection(3);
+                            return c.emotionSprites[1];
                         }                        
                     }                    
                 }
-                if (c.favSoup.name.Equals(soupName))
-                {
-                    c.IsFavSoupKnown = true;
-                    result = 5;
-                }
-                c.updateAffection(result);
+                c.updateAffection(1);
+                return c.emotionSprites[0];
             }
-            
         }
-        return result;
+        Debug.Log("Character non trouver dans testPreference");
+        return character[0].emotionSprites[0];
+    }
+
+    public Sprite ChangeFaceWhenEatingSoup()
+    {
+        string s = TestRecipe();        
+        Debug.Log("Name soup : " + s);
+        return TestPreference(s);
+
     }
 
 }

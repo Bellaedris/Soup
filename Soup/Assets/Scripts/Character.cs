@@ -32,6 +32,10 @@ public class Character : MonoBehaviour
     {
         return affection;
     }
+    public void updateSprite(int i)
+    {
+        GetComponent<SpriteRenderer>().sprite = emotionSprites[i];
+    }
 
     private void OnMouseOver() {
         GetComponent<SpriteRenderer>().sprite = emotionSprites[1];
