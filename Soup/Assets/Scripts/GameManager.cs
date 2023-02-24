@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
     public Dictionary<Ingredient, int> InitMarket(){
         Dictionary<Ingredient, int> ingredientInMarket = new  Dictionary<Ingredient, int>();
 
+        foreach (KeyValuePair<Legume, int> legume in Inventaire.instance.inventaireLegumes)  
+        {  
+            ingredientInMarket[legume.Key] = Inventaire.instance.maxIngredientInventory - legume.Value;
+        } 
+
         foreach (KeyValuePair<Ingredient, int> ingredient in Inventaire.instance.inventaireIngredients)  
         {  
             ingredientInMarket[ingredient.Key] = Inventaire.instance.maxIngredientInventory - ingredient.Value;
