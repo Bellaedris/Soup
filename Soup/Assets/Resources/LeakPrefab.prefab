@@ -52,7 +52,8 @@ MonoBehaviour:
   objet: {fileID: -7387706064836869012, guid: 9de6c69be02c7e64a94873384ceab40c, type: 3}
   isMixed: 1
   couleur: {r: 0.46168566, g: 0.7830189, b: 0.46996954, a: 0}
-  mixedObject: {fileID: 0}
+  mixedObject: {fileID: 1053348094746505069, guid: 0784329700c10ede9a339e87042f7343,
+    type: 3}
 --- !u!23 &4941250090894007729
 MeshRenderer:
   m_ObjectHideFlags: 0
