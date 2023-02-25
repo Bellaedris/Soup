@@ -101,7 +101,7 @@ public class MarketManager : MonoBehaviour
             GameManager.instance.loadKitchenScene();
         }
         else{
-            Debug.Log("show notif");
+            Debug.Log("show minimumNumberVegetablesToBuy : " + this.minimumNumberVegetablesToBuy + "nb leg invent" + Inventaire.instance.nbLegumeInInventory() );
             if (this.minimumNumberVegetablesToBuy > 0)
                 errorNotificationController.showNotification("you must have at least " + minimumNumberVegetablesToBuy + " vegetables in your inventory to leave the market");
             if (GameManager.instance.guest == "")

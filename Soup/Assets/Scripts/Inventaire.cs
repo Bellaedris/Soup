@@ -44,10 +44,10 @@ public class Inventaire : MonoBehaviour
 
     public void AddLegume(Legume legume)
     {
-        foreach (KeyValuePair<Legume, int> ingredient in inventaireLegumes)  
+        foreach (KeyValuePair<Legume, int> leg in inventaireLegumes)  
         {  
-            if(ingredient.Key.nom == legume.nom){
-                inventaireLegumes[ingredient.Key] ++;
+            if(leg.Key.nom == legume.nom){
+                inventaireLegumes[leg.Key] ++;
                 return;
             }
         } 
@@ -68,9 +68,9 @@ public class Inventaire : MonoBehaviour
     public int nbLegumeInInventory()
     {
         int counter = 0;
-        foreach(int nb in listInventaireIngredientsNumber)
+        foreach (KeyValuePair<Legume, int> leg in inventaireLegumes)  
         {
-            counter += nb;
+            counter += leg.Value;
         }
         return counter;
     }
