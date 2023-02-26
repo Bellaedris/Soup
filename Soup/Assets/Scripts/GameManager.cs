@@ -32,6 +32,17 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
 
+        
+    }
+    private void Start() {
+        //Get Known soup, "10000000" is the default value 
+        string myBooleansString = PlayerPrefs.GetString("knownSoup", "10000000");
+
+        // Convert string to boolean array
+        for (int i = 0; i < myBooleansString.Length; i++)
+        {
+            soupIsKnow[i] = myBooleansString[i] == '1' ? true : false;
+        }
     }
 
     public Dictionary<Ingredient, int> InitMarket(){
@@ -106,6 +117,8 @@ public class GameManager : MonoBehaviour
 
     public void loadMorningScene()
     {
+       
+
         StartCoroutine(LoadScene("MorningSceneWakyWaky"));      
     }
 
@@ -131,6 +144,8 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        
         return "commun";
     }
 
@@ -175,6 +190,15 @@ public class GameManager : MonoBehaviour
     public Sprite ChangeFaceWhenEatingSoup()
     {
         string s = TestRecipe();        
+        //Save known soup
+        string myBooleansString = "";
+
+        foreach (bool b in soupIsKnow)
+        {
+            myBooleansString += b ? "1" : "0";
+        }
+
+        PlayerPrefs.SetString("knownSoup", myBooleansString);
         Debug.Log("Name soup : " + s);
         return TestPreference(s);
 
