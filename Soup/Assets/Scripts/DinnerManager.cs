@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class DinnerManager : MonoBehaviour
 {
 
     public GameObject guestPrefab;
     public Soup soup;
-
+    public GameObject loadMorning;
     public GameObject soupSurface;
     public Object emotion;
 
@@ -32,9 +32,11 @@ public class DinnerManager : MonoBehaviour
             guestPrefab = (GameObject)Resources.Load("prefab/Characters/" + guestName, typeof(GameObject));
             guestPrefab.transform.localScale = Vector3.one * 0.09f;
             Instantiate(guestPrefab, guestPos, Quaternion.Euler(guestRotation));
-
             soup = GameManager.instance.GetComponent<Soup>();
             soupSurface.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
+            loadMorning.GetComponent<CanvasGroup>().alpha = 0;
+
+
         }
     }
 
@@ -52,6 +54,8 @@ public class DinnerManager : MonoBehaviour
                     hit.collider.gameObject.transform.position = new Vector3(-19.463f, 0.882f, -6.259f);
                     hit.collider.gameObject.transform.rotation = Quaternion.Euler(-90, 90, 0);
                     soupSurface.SetActive(false);
+                    loadMorning.GetComponent<CanvasGroup>().alpha = 1;
+
                 }
                 else //If you have not yet drunk the soup
                 {
@@ -62,5 +66,8 @@ public class DinnerManager : MonoBehaviour
                 }
             }
         }
-    } 
+    }
+    public void LoadMorningScene(){
+        GameManager.instance.loadMorningScene();
+    }
 }
