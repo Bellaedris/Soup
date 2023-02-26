@@ -57,9 +57,6 @@ public class DinnerManager : MonoBehaviour
                     soupSurface.SetActive(false);
                     loadMorning.SetActive(true);
                     loadMorning.GetComponent<CanvasGroup>().alpha = 1;
-                    GameManager.instance.guest = "";
-                    GameManager.instance.ingredientsSoup.Clear();
-
                 }
                 else //If you have not yet drunk the soup
                 {
@@ -71,8 +68,18 @@ public class DinnerManager : MonoBehaviour
             }
         }
     }
+
     public void LoadMorningScene(){
-        GameManager.instance.guest = null;
+        //cleanup the gameObjects for next gameplay loop
+        foreach (var l in GameManager.instance.GetComponents<Ingredient>())
+        {
+            Destroy(l);
+        }
+
+        Destroy(GameManager.instance.GetComponent<Soup>());
+
+        //resets the guest
+        GameManager.instance.guest = "";
         GameManager.instance.loadMorningScene();
     }
 }
