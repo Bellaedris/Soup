@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
                             c.IsFavSoupKnown = true;
                             Debug.Log("affection + 5");
                             c.updateAffection(5);
+                            c.PlayEmotionParticle("LoveParticles");
                             return c.emotionSprites[2];
                         }
                         if (isoup.nom.Equals(c.favIngredients[i].nom))
@@ -153,6 +154,7 @@ public class GameManager : MonoBehaviour
                             c.isFavIngredientsKnown[i] = true;
                             Debug.Log("affection + 3");
                             c.updateAffection(3);
+                            c.PlayEmotionParticle("HappyParticles");
                             return c.emotionSprites[1];
                         }                        
                     }                    
@@ -161,7 +163,7 @@ public class GameManager : MonoBehaviour
                 return c.emotionSprites[0];
             }
         }
-        Debug.Log("Character non trouver dans testPreference");
+        Debug.Log("Character not found in testPreference");
         return character[0].emotionSprites[0];
     }
 

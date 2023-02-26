@@ -37,6 +37,11 @@ public class Character : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = emotionSprites[i];
     }
 
+    public void PlayEmotionParticle(string emotion)
+    {
+        GameObject.FindGameObjectWithTag(emotion).GetComponent<ParticleSystem>().Play();
+    }
+
     private void OnMouseOver() {
         GetComponent<SpriteRenderer>().sprite = emotionSprites[1];
     }

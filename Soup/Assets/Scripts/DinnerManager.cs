@@ -12,7 +12,12 @@ public class DinnerManager : MonoBehaviour
     public GameObject soupSurface;
     public Object emotion;
 
+    [Tooltip("Position the guest will spawn at")]
+    public Vector3 guestPos;
+    [Tooltip("Rotation of the guest")]
+    public Vector3 guestRotation;
     bool drinkSoop = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +31,7 @@ public class DinnerManager : MonoBehaviour
             string guestName = GameManager.instance.guest;
             guestPrefab = (GameObject)Resources.Load("prefab/Characters/" + guestName, typeof(GameObject));
             guestPrefab.transform.localScale = Vector3.one * 0.09f;
-            Instantiate(guestPrefab, new Vector3(-20.14f, 1.06f, -6.2f), Quaternion.Euler(0f, 90f, 0f));
+            Instantiate(guestPrefab, guestPos, Quaternion.Euler(guestRotation));
 
             soup = GameManager.instance.GetComponent<Soup>();
             soupSurface.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
