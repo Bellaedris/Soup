@@ -34,6 +34,7 @@ public class DinnerManager : MonoBehaviour
             Instantiate(guestPrefab, guestPos, Quaternion.Euler(guestRotation));
             soup = GameManager.instance.GetComponent<Soup>();
             soupSurface.GetComponent<Renderer>().material.SetColor("_Color", soup.computeColor());
+            loadMorning.SetActive(false);
             loadMorning.GetComponent<CanvasGroup>().alpha = 0;
 
 
@@ -54,6 +55,7 @@ public class DinnerManager : MonoBehaviour
                     hit.collider.gameObject.transform.position = new Vector3(-19.463f, 0.882f, -6.259f);
                     hit.collider.gameObject.transform.rotation = Quaternion.Euler(-90, 90, 0);
                     soupSurface.SetActive(false);
+                    loadMorning.SetActive(true);
                     loadMorning.GetComponent<CanvasGroup>().alpha = 1;
 
                 }
