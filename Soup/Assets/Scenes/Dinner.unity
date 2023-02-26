@@ -4370,7 +4370,7 @@ MonoBehaviour:
   sounds:
   - name: Soup Jingle
     clip: {fileID: 8300000, guid: bb7dae05f3439a247a901ff588712c89, type: 3}
-    volume: 0.8
+    volume: 0.27
     pitch: 0.9
     source: {fileID: 0}
 --- !u!1 &1810570776
