@@ -12,16 +12,20 @@ public class LongClickRightMarket : MonoBehaviour,  IPointerDownHandler, IPointe
     bool pressing = false;  
     private float pointerDownTimer;
     public GameObject leftArrow;
+    private int scaleFactor = 5;
+
 
     private void Start() {
-        if(Camera.main.transform.position.z > 9.5){
+        if(Camera.main.transform.position.z > 9.5 * scaleFactor)
+        {
             this.gameObject.SetActive(false);
         }
     }
     private void Update() {
 
-        if(pressing && Camera.main.transform.position.z < 10.5){
-            Camera.main.transform.Translate(Vector3.right * (Time.deltaTime*2));
+        if(pressing && Camera.main.transform.position.z < 10.5 * scaleFactor)
+        {
+            Camera.main.transform.Translate(Vector3.right * (Time.deltaTime*2) * scaleFactor);
         }
         if(Camera.main.transform.position.z > 0){
             leftArrow.SetActive(true);
@@ -34,10 +38,12 @@ public class LongClickRightMarket : MonoBehaviour,  IPointerDownHandler, IPointe
  
     public void OnPointerDown (PointerEventData eventData)
     {
-        if(Camera.main.transform.position.z > 10){
+        if(Camera.main.transform.position.z > 10 * scaleFactor)
+        {
             this.gameObject.SetActive(false);
         }
-        if(Camera.main.transform.position.z > 0){
+        if(Camera.main.transform.position.z > 0 * scaleFactor)
+        {
             leftArrow.SetActive(true);
         }
 
@@ -47,10 +53,12 @@ public class LongClickRightMarket : MonoBehaviour,  IPointerDownHandler, IPointe
    
     public void OnPointerUp (PointerEventData eventData)
     {
-        if(Camera.main.transform.position.z > 10){
+        if(Camera.main.transform.position.z > 10 * scaleFactor)
+        {
             this.gameObject.SetActive(false);
         }
-        if(Camera.main.transform.position.z > 0){
+        if(Camera.main.transform.position.z > 0 * scaleFactor)
+        {
             leftArrow.SetActive(true);
         }
         pressing = false;

@@ -11,29 +11,35 @@ public class LongClickLeftMarket : MonoBehaviour,  IPointerDownHandler, IPointer
 
     bool pressing = false;  
     private float pointerDownTimer;
+    private int scaleFactor = 5;
     
     public GameObject rightArrow;
 
     private void Start() {
-        if(Camera.main.transform.position.z < 0.5){
+        if(Camera.main.transform.position.z < 0.5 * scaleFactor)
+        {
             this.gameObject.SetActive(false);
         }
     }
     private void Update() {
-        if(pressing && Camera.main.transform.position.z > -0.5){
-            Camera.main.transform.Translate(Vector3.left * (Time.deltaTime*2));
+        if(pressing && Camera.main.transform.position.z > -0.5 * scaleFactor)
+        {
+            Camera.main.transform.Translate(Vector3.left * (Time.deltaTime*2) * scaleFactor);
         }
-        if(Camera.main.transform.position.z < 10){
+        if(Camera.main.transform.position.z < 10 * scaleFactor)
+        {
             rightArrow.SetActive(true);
         }
     } 
  
     public void OnPointerDown (PointerEventData eventData)
     {
-        if(Camera.main.transform.position.z < 0){
+        if(Camera.main.transform.position.z < 0 * scaleFactor)
+        {
             this.gameObject.SetActive(false);
         }
-        if(Camera.main.transform.position.z < 10){
+        if(Camera.main.transform.position.z < 10 * scaleFactor)
+        {
             rightArrow.SetActive(true);
         }
         pressing = true;
@@ -42,10 +48,12 @@ public class LongClickLeftMarket : MonoBehaviour,  IPointerDownHandler, IPointer
    
     public void OnPointerUp (PointerEventData eventData)
     {
-        if(Camera.main.transform.position.z < 0){
+        if(Camera.main.transform.position.z < 0 * scaleFactor)
+        {
             this.gameObject.SetActive(false);
         }
-        if(Camera.main.transform.position.z < 10){
+        if(Camera.main.transform.position.z < 10 * scaleFactor)
+        {
             rightArrow.SetActive(true);
         }
         pressing = false;

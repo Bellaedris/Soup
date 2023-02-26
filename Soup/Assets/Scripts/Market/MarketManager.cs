@@ -41,7 +41,7 @@ public class MarketManager : MonoBehaviour
             }
             instancy = 0;
             while(instancy < ingredient.Value){
-                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(-0.1f * instancy, instancy, 0) , Quaternion.identity);
+                Instantiate(ObjectPrefab, PosObject.transform.position + new Vector3(0, instancy * 3, 0) , Quaternion.identity);
                 instancy++;
             }
         } 
@@ -60,6 +60,7 @@ public class MarketManager : MonoBehaviour
                 Destroy(hit.collider.gameObject.GetComponent<Legume>());
                 Inventaire.instance.AddLegume(hit.collider.gameObject.GetComponent<Legume>());
                 hit.collider.gameObject.transform.position = GameObject.FindWithTag("PosBasket").transform.position;
+                hit.collider.gameObject.transform.SetParent(GameObject.FindWithTag("PosBasket").transform);
             }
             // if the cursor hits a character, set the guest 
             if(hit.collider.gameObject.GetComponent<Character>() != null)
