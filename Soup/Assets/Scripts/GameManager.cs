@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void loadMarketScene()
     {
-        StartCoroutine(LoadScene("Marché"));      
+        StartCoroutine(LoadScene("marché"));      
     }
 
     public void loadMorningScene()
