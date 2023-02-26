@@ -4063,6 +4063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763733241}
   - component: {fileID: 1763733242}
+  - component: {fileID: 1763733243}
   m_Layer: 0
   m_Name: DinnerManager
   m_TagString: Untagged
@@ -4104,6 +4105,25 @@ MonoBehaviour:
   emotion: {fileID: 228303613}
   guestPos: {x: -20.14, y: 1.06, z: -6.2}
   guestRotation: {x: 0, y: 90, z: 0}
+--- !u!114 &1763733243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763733239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d1165b411e073679f776f1dc39a1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24300002, guid: 9f9f73c45c0c195428488504a19df859, type: 2}
+  sounds:
+  - name: Soup Jingle
+    clip: {fileID: 8300000, guid: bb7dae05f3439a247a901ff588712c89, type: 3}
+    volume: 0.8
+    pitch: 0.9
+    source: {fileID: 0}
 --- !u!1 &1810570776
 GameObject:
   m_ObjectHideFlags: 0
