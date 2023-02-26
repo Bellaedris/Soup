@@ -12,7 +12,7 @@ public struct ItemPrefab
 }
 
 
-public class MarketManager : MonoBehaviour
+public class MarketManager : MonoBehaviour, IDataPersistence
 {
     Dictionary<Ingredient, int> ingredient_to_put;
     public List<ItemPrefab> list_prefab;
@@ -45,6 +45,16 @@ public class MarketManager : MonoBehaviour
                 instancy++;
             }
         } 
+    }
+
+    public void LoadData(GameData data)
+    {
+        Inventaire.instance = data.inventory;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.inventory = Inventaire.instance;
     }
 
     private void Update() {

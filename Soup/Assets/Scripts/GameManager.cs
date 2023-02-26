@@ -32,6 +32,17 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);//le GameObject qui porte ce script ne sera pas détruit
 
+        
+    }
+    private void Start() {
+        //Get Known soup, "10000000" is the default value 
+        string myBooleansString = PlayerPrefs.GetString("knownSoup", "10000000");
+
+        // Convert string to boolean array
+        for (int i = 0; i < myBooleansString.Length; i++)
+        {
+            soupIsKnow[i] = myBooleansString[i] == '1' ? true : false;
+        }
     }
 
     public Dictionary<Ingredient, int> InitMarket(){
@@ -106,6 +117,8 @@ public class GameManager : MonoBehaviour
 
     public void loadMorningScene()
     {
+       
+
         StartCoroutine(LoadScene("MorningSceneWakyWaky"));      
     }
 
@@ -131,45 +144,51 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        
         return "commun";
     }
 
     public Sprite TestPreference(string soupName)
     {
         Ingredient[] ingredients = this.GetComponents<Ingredient>();
-
         foreach (Character c in character)
         {
             if (guest == c.name)
-            {                
+            {
+                Sprite emotion = c.emotionSprites[0];
+                if (c.favSoup.name.Equals(soupName))
+                {
+                    c.IsFavSoupKnown = true;
+                    Debug.Log("affection + 5");
+                    c.updateAffection(5);
+                    c.PlayEmotionParticle("LoveParticles");
+                    GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
+                    emotion = c.emotionSprites[2];
+                }
                 foreach (Ingredient isoup in ingredients)
                 {
                     for (int i = 0; i < c.favIngredients.Count; i++)
                     {
-                        if (c.favSoup.name.Equals(soupName))
-                        {
-                            c.IsFavSoupKnown = true;
-                            Debug.Log("affection + 5");
-                            c.updateAffection(5);
-                            c.PlayEmotionParticle("LoveParticles");
-                            GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
-                            return c.emotionSprites[2];
-                        }
                         if (isoup.nom.Equals(c.favIngredients[i].nom))
                         {
                             c.isFavIngredientsKnown[i] = true;
-                            Debug.Log("affection + 3");
-                            c.updateAffection(3);
-                            c.PlayEmotionParticle("HappyParticles");
-                            GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
-                            return c.emotionSprites[1];
+                            if(emotion != c.emotionSprites[2])
+                            {
+                                Debug.Log("affection + 3");
+                                c.updateAffection(3);
+                                c.PlayEmotionParticle("HappyParticles");
+                                GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
+                                emotion = c.emotionSprites[1];
+                            }
                         }                        
                     }                    
                 }
-                c.updateAffection(1);
-                c.PlayEmotionParticle("HappyParticles");
-                GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
-                return c.emotionSprites[0];
+                if(emotion == c.emotionSprites[0]){                    
+                    c.updateAffection(1);
+                    GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
+                }
+                return emotion;
             }
         }
         Debug.Log("Character not found in testPreference");
@@ -179,6 +198,15 @@ public class GameManager : MonoBehaviour
     public Sprite ChangeFaceWhenEatingSoup()
     {
         string s = TestRecipe();        
+        //Save known soup
+        string myBooleansString = "";
+
+        foreach (bool b in soupIsKnow)
+        {
+            myBooleansString += b ? "1" : "0";
+        }
+
+        PlayerPrefs.SetString("knownSoup", myBooleansString);
         Debug.Log("Name soup : " + s);
         return TestPreference(s);
 

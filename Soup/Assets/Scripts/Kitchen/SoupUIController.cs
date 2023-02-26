@@ -18,9 +18,11 @@ public class SoupUIController : MonoBehaviour
     private void Start()
     {
         inventory = new Inventaire();
+        //Create soup
         soup = new Soup();
         soupRenderer = soupSurface.GetComponent<Renderer>();
         //Debug.Log("New Controller");
+        //Generate Inventory
         generateInventoryUI();
     }
 
@@ -133,6 +135,7 @@ public class SoupUIController : MonoBehaviour
     }
     public GameObject createLegumeInventoryItem(Transform itemSpawner, int numberOfIngredient, Legume legume)
     {
+        //Create one Inventory Item by giving everything to a prefab of a UI element
         GameObject newItem;
         newItem = Instantiate(inventoryItem, itemSpawner);
         newItem.AddComponent<Legume>();
