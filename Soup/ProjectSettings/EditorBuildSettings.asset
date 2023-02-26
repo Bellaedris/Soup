@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/test.unity
     guid: 1efd591f305c5224e8007aca864b9c15
   - enabled: 1
-    path: "Assets/Scenes/march\xE9.unity"
+    path: "Assets/Scenes/Oldmarch\xE9.unity"
     guid: a28af58a6657f564aaa724f6a58b2cb6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/marcheBis.unity
     guid: aa5603c9e591b964aa44fca64209518d
+  - enabled: 1
+    path: "Assets/Scenes/march\xE9.unity"
+    guid: 6bf7ecbea0dbada47b07e670072da86b
   - enabled: 1
     path: Assets/Scenes/Dinner.unity
     guid: 59f00a5f14c8dec49811d251c35d7dcd
