@@ -17,9 +17,10 @@ TagManager:
   - UILegumeObject
   - Character
   - UIIngObject
-  - Bowl
   - LoveParticles
   - HappyParticles
+  - RecipeBook
+  - CharactersBook
   layers:
   - Default
   - TransparentFX
