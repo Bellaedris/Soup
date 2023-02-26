@@ -57,6 +57,8 @@ public class DinnerManager : MonoBehaviour
                     soupSurface.SetActive(false);
                     loadMorning.SetActive(true);
                     loadMorning.GetComponent<CanvasGroup>().alpha = 1;
+                    GameManager.instance.guest = "";
+                    GameManager.instance.ingredientsSoup.Clear();
 
                 }
                 else //If you have not yet drunk the soup
