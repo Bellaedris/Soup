@@ -75,11 +75,8 @@ public class Book : MonoBehaviour {
 
     void Start()
     {
-        recette = new bool[bookPages.Length];
+        recette = GameManager.instance.soupIsKnow;
         recette[0] = true;
-        recette[3] = true;
-        recette[2] = true;
-        recette[5] = true;
 
         if (!canvas) canvas=GetComponentInParent<Canvas>();
         if (!canvas) Debug.LogError("Book should be a child to canvas");

@@ -166,7 +166,7 @@ public class BookPerso : MonoBehaviour
             else
                 LCache[i].enabled = true;
         }
-        if (characters[currentPage - 2].getAffection() <= 10)
+        if (characters[currentPage - 2].getAffection() >= 10)
             LCache[3].enabled = true;
         else
             LCache[3].enabled = false;
