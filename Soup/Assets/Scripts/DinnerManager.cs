@@ -72,6 +72,7 @@ public class DinnerManager : MonoBehaviour
         }
     }
     public void LoadMorningScene(){
+        GameManager.instance.guest = null;
         GameManager.instance.loadMorningScene();
     }
 }
