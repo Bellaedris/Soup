@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public Character[] character;
     public Soup[] soups;
 
+    public bool[] soupIsKnow;
+
     public List<Ingredient> ingredientsSoup;
     public Animator Transition;
 
@@ -111,9 +113,9 @@ public class GameManager : MonoBehaviour
     public string TestRecipe()
     {
         Ingredient[] ingredients = this.GetComponents<Ingredient>();
-        foreach (Soup s in soups)
+        for(int s=0; s < soups.Length; s++)
         {
-            List<Ingredient> ingredientsRecipe = s.GetIngredients().ToList();
+            List<Ingredient> ingredientsRecipe = soups[s].GetIngredients().ToList();
             if (ingredients.Length == ingredientsRecipe.Count)
             {
                 foreach (Ingredient isoup in ingredients)
@@ -122,7 +124,10 @@ public class GameManager : MonoBehaviour
                         if (isoup.nom.Equals(ingredientsRecipe[i].nom))
                             ingredientsRecipe.RemoveAt(i);
                     if (ingredientsRecipe.Count == 0)
-                        return s.name;
+                    {
+                        soupIsKnow[s+1] = true;
+                        return soups[s].name;
+                    }
                 }
             }
         }
