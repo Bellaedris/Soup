@@ -18,6 +18,8 @@ TagManager:
   - Character
   - UIIngObject
   - Bowl
+  - LoveParticles
+  - HappyParticles
   layers:
   - Default
   - TransparentFX
