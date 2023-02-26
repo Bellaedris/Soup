@@ -167,6 +167,7 @@ public class GameManager : MonoBehaviour
                             Debug.Log("affection + 5");
                             c.updateAffection(5);
                             c.PlayEmotionParticle("LoveParticles");
+                            GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
                             return c.emotionSprites[2];
                         }
                         if (isoup.nom.Equals(c.favIngredients[i].nom))
@@ -175,11 +176,14 @@ public class GameManager : MonoBehaviour
                             Debug.Log("affection + 3");
                             c.updateAffection(3);
                             c.PlayEmotionParticle("HappyParticles");
+                            GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
                             return c.emotionSprites[1];
                         }                        
                     }                    
                 }
                 c.updateAffection(1);
+                c.PlayEmotionParticle("HappyParticles");
+                GameObject.FindObjectOfType<AudioManager>().Play("Soup Jingle");
                 return c.emotionSprites[0];
             }
         }
