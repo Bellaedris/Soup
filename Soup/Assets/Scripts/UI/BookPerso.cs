@@ -1,13 +1,5 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEditor.U2D;
-using UnityEngine.U2D;
-using UnityEngine.Purchasing;
-using UnityEngine.TextCore.Text;
-using System.Collections.Generic;
-using System.Linq;
 
 [ExecuteInEditMode]
 public class BookPerso : MonoBehaviour
