@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using static UnityEditor.Rendering.InspectorCurveEditor;
 
 public class Character : MonoBehaviour
 {
