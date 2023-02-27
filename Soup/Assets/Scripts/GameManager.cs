@@ -108,6 +108,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void resetGameData()
+    {
+        PlayerPrefs.SetString("knownSoup", "10000000");
+
+    }
     public void loadMarketScene()
     {
         StartCoroutine(LoadScene("marché"));      
