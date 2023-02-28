@@ -1289,6 +1289,7 @@ MonoBehaviour:
   - {fileID: -1649279031902866970, guid: 6de41c717ad2f5f40bce812987087611, type: 3}
   - {fileID: -5225335091299892435, guid: c6a3ac6b90e20714490545836595248b, type: 3}
   - {fileID: -1649279031902866970, guid: 5cac24d2fea1a4f4e87ed62106ff8099, type: 3}
+  soupIsKnow: 
   ingredientsSoup: []
   Transition: {fileID: 4758449801928261292}
 --- !u!4 &420905209
@@ -5207,7 +5208,7 @@ MonoBehaviour:
   TimeOfDay: 5
   speed: 0.5
   startDayAt: 5
-  freezeTimeAt: 11.2
+  freezeTimeAt: 8.5
   pointLight: {fileID: 1206799044}
   pointLightMin: 5
   pointLightMax: 50
